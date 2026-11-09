@@ -39,8 +39,8 @@ export const recurringEvents: RecurringEvent[] = [
         alt: "A singer playing an acoustic guitar under a spotlight on a small stage",
       },
       {
-        src: "/images/home/open-mic-2.jpg",
-        alt: "A performer silhouetted at a microphone stand in a beam of stage light",
+        src: "/images/home/open-mic-singer.jpg",
+        alt: "A singer belting into a vintage microphone under warm stage lights",
       },
     ],
   },
@@ -58,8 +58,8 @@ export const recurringEvents: RecurringEvent[] = [
         alt: "Cupping bowls of ground coffee and tasting spoons set out on a wooden table",
       },
       {
-        src: "/images/home/coffee-tasting-2.jpg",
-        alt: "Freshly brewed coffee pouring from a glass server at the bar",
+        src: "/images/home/coffee-cupping.jpg",
+        alt: "A barista pouring coffee into a row of cupping bowls at a tasting",
       },
     ],
   },

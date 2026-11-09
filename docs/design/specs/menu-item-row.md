@@ -17,7 +17,7 @@ One entry on the menu page, set like a printed café menu: the name and price ar
 |---|---|
 | Thumbnail | 80px, or 104px from `sm`. `rounded-tile`, `border-espresso-600` |
 | Name | `text-title-sm` bold, foam |
-| Leader | 2px dotted `steam-500/50` bottom border filling the gap (`flex-1`, min 24px). `aria-hidden` |
+| Leader | 2px dotted `steam-500/50` bottom border filling the gap (`flex-1`, min 8px below `sm`, 24px from `sm`). `aria-hidden`. The name, leader and price sit `gap-2` apart below `sm` and `gap-3` from `sm`, so the row fits at 320px. The name (`min-w-0 hyphens-auto`) wraps before the row overflows |
 | Price | `text-title-sm` bold, `crema-500`, `tabular-nums`, never wraps |
 | Description | `text-caption` `steam-300`, `max-w-prose` |
 | Badge | Below the description, tone from `menuBadgeTone()` |

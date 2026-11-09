@@ -29,9 +29,9 @@ export function MenuItemRow({
         <Image src={image.src} alt={image.alt} fill sizes="(min-width: 640px) 6.5rem, 5rem" className="object-cover" />
       </div>
       <div className="min-w-0 py-1">
-        <div className="flex items-baseline gap-3">
-          <h3 className="text-title-sm font-bold text-balance text-foam-50">{name}</h3>
-          <span aria-hidden className="mb-1.5 min-w-6 flex-1 border-b-2 border-dotted border-steam-500/50" />
+        <div className="flex items-baseline gap-2 sm:gap-3">
+          <h3 className="min-w-0 text-title-sm font-bold text-balance hyphens-auto text-foam-50">{name}</h3>
+          <span aria-hidden className="mb-1.5 min-w-2 flex-1 border-b-2 border-dotted border-steam-500/50 sm:min-w-6" />
           <p className="shrink-0 text-title-sm font-bold text-crema-500 tabular-nums">
             {formatPrice(price, currency)}
           </p>

@@ -1,0 +1,178 @@
+/*
+ * Brew & Co. — design tokens (Tailwind CSS v4)
+ * ------------------------------------------------------------
+ * Source of truth for every color, type size, radius, shadow and
+ * motion value in the product. Mirrors tokens.json (DTCG format).
+ *
+ * Adopt by importing once from app/globals.css, *after* tailwindcss:
+ *
+ *   @import "tailwindcss";
+ *   @import "../docs/design/tokens/tokens.css";
+ *
+ * Every `--color-*`, `--text-*`, `--radius-*`, `--shadow-*`,
+ * `--spacing-*`, `--container-*`, `--ease-*` and `--animate-*` key
+ * below becomes a Tailwind utility, e.g. bg-roast-950, text-crema-500,
+ * text-display, rounded-card, shadow-glow, py-section, max-w-site.
+ */
+
+@theme {
+  /* ---------- Color: Roast (page surfaces, blue-black night) ---------- */
+  --color-roast-950: #090c12; /* page background */
+  --color-roast-900: #0f131c; /* alternate section */
+  --color-roast-800: #161c29; /* inputs, raised neutral surfaces */
+  --color-roast-700: #222a3a; /* neutral borders, dividers */
+  --color-roast-600: #1f2b47; /* navy glow in the stats band */
+
+  /* ---------- Color: Espresso (card bodies, warm panels) ---------- */
+  --color-espresso-900: #1c120a;
+  --color-espresso-800: #2a1a0e;
+  --color-espresso-700: #3d2614;
+  --color-espresso-600: #5a3a1f; /* card border */
+
+  /* ---------- Color: Crema (the single accent) ---------- */
+  --color-crema-300: #ffc27a;
+  --color-crema-400: #ffa640; /* hover */
+  --color-crema-500: #f5911e; /* base accent */
+  --color-crema-600: #d9760a; /* pressed */
+  --color-crema-700: #a85a06;
+
+  /* ---------- Color: Foam & Steam (text on dark) ---------- */
+  --color-foam-50: #fbf6ef; /* primary text */
+  --color-foam-100: #f1e8dc;
+  --color-steam-300: #c2baaf; /* secondary text */
+  --color-steam-500: #8c857b; /* meta text, placeholders */
+
+  /* ---------- Color: utility ---------- */
+  --color-ink: #1a0f05; /* text on crema */
+  --color-paper: #ffffff; /* product tile frame */
+  --color-success: #7cc47f;
+  --color-danger: #f2685c;
+
+  /* ---------- Typography ---------- */
+  --font-sans: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-script: var(--font-yellowtail), cursive; /* wordmark only */
+
+  /* Classical scale (Bringhurst): 12 14 16 18 21 24 30 36 48 60 72 */
+  --text-micro: 0.75rem;
+  --text-micro--line-height: 1.4;
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.5;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.6;
+  --text-title-sm: 1.3125rem;
+  --text-title-sm--line-height: 1.3;
+  --text-title: 1.5rem;
+  --text-title--line-height: 1.25;
+  --text-heading: 1.875rem;
+  --text-heading--line-height: 1.15;
+  --text-heading--letter-spacing: -0.01em;
+  --text-heading-lg: 2.25rem;
+  --text-heading-lg--line-height: 1.1;
+  --text-heading-lg--letter-spacing: -0.015em;
+  --text-display: 3rem;
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.02em;
+  --text-display-lg: 3.75rem;
+  --text-display-lg--line-height: 1;
+  --text-display-lg--letter-spacing: -0.025em;
+  --text-hero: 4.5rem;
+  --text-hero--line-height: 0.98;
+  --text-hero--letter-spacing: -0.03em;
+
+  /* ---------- Radius (follows hierarchy, not one-size) ---------- */
+  --radius-tag: 0.25rem; /* badges */
+  --radius-tile: 0.625rem; /* product image frames */
+  --radius-card: 1rem; /* cards */
+  --radius-panel: 1.5rem; /* full-width panels (newsletter) */
+
+  /* ---------- Shadow ---------- */
+  --shadow-card: inset 0 1px 0 0 rgb(255 255 255 / 0.05),
+    0 24px 48px -24px rgb(0 0 0 / 0.7);
+  --shadow-glow: 0 0 0 1px rgb(245 145 30 / 0.4),
+    0 16px 40px -16px rgb(245 145 30 / 0.45);
+  --shadow-tile: 0 18px 40px -20px rgb(0 0 0 / 0.8);
+
+  /* ---------- Layout ---------- */
+  --container-site: 75rem; /* 1200px content column */
+  --container-prose: 36rem; /* ~65ch for body copy */
+  --spacing-gutter: 1rem; /* mobile side gutter */
+  --spacing-section: 6rem; /* vertical rhythm between sections */
+  --spacing-section-sm: 4rem; /* same, below md */
+
+  /* ---------- Motion ---------- */
+  --ease-pour: cubic-bezier(0.2, 0.7, 0.2, 1); /* entrances */
+  --ease-settle: cubic-bezier(0.4, 0, 0.2, 1); /* state changes */
+  --animate-steam: steam 3.2s var(--ease-pour) infinite;
+  --animate-pour-in: pour-in 900ms var(--ease-pour) both;
+  --animate-pulse-draw: pulse-draw 1600ms var(--ease-pour) forwards;
+
+  @keyframes steam {
+    0% { opacity: 0; transform: translateY(8px) scaleX(0.9); }
+    35% { opacity: 0.7; }
+    100% { opacity: 0; transform: translateY(-28px) scaleX(1.15); }
+  }
+  @keyframes pour-in {
+    from { opacity: 0; transform: translateY(16px) rotate(-6deg); }
+    to { opacity: 1; transform: translateY(0) rotate(0); }
+  }
+  @keyframes pulse-draw {
+    to { stroke-dashoffset: 0; }
+  }
+}
+
+/* Non-utility tokens: composite backgrounds referenced via bg-(--…) */
+:root {
+  --bg-card: linear-gradient(
+    180deg,
+    var(--color-espresso-700) 0%,
+    var(--color-espresso-900) 100%
+  );
+  --bg-panel: radial-gradient(
+    120% 140% at 50% 0%,
+    var(--color-espresso-700) 0%,
+    var(--color-espresso-900) 70%
+  );
+  --bg-stats: linear-gradient(
+    180deg,
+    var(--color-roast-900) 0%,
+    var(--color-roast-600) 50%,
+    var(--color-roast-900) 100%
+  );
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+  --duration-slow: 600ms;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-roast-950);
+    color: var(--color-foam-50);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-crema-400);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: var(--color-crema-500);
+    color: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

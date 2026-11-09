@@ -157,7 +157,7 @@ The arrow (`ArrowRight`) only goes on actions that take you somewhere: "Order no
 
 Spend motion in two places only:
 
-1. **Hero:** Brew & Co.'s homepage plays a short muted loop of a barista pouring a flaming coffee, with a pause button and a still poster under reduced motion. With a photo instead, the cup "pours in" (a 900ms rise and settle on `ease-pour`) while steam loops gently above it (`animate-steam`). The background-photo variant replaces this with a single 1.4s settle-in of the photo (`animate-settle-in`).
+1. **Hero:** Brew & Co.'s homepage plays a slow, muted loop of espresso pouring into a cup, with a pause button and a still poster under reduced motion. With a photo instead, the cup "pours in" (a 900ms rise and settle on `ease-pour`) while steam loops gently above it (`animate-steam`). The background-photo variant replaces this with a single 1.4s settle-in of the photo (`animate-settle-in`).
 2. **The heartbeat line:** it draws itself once. In the split hero it wipes in on load (`animate-line-reveal`); as a standalone PulseDivider it draws the first time it scrolls into view. This is the brand's signature moment, so a page shows it once. See [specs/hero.md](specs/hero.md) and [specs/pulse-divider.md](specs/pulse-divider.md).
 
 Everything else moves only in response to the user: hover color changes (150ms `ease-settle`), the card focus and hover glow (240ms), and a slow image zoom on card hover (600ms, at most 1.04×). Sections don't fade in as you scroll, and carousels don't autoplay.

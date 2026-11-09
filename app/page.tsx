@@ -44,13 +44,9 @@ export default async function Home() {
           </>
         }
         video={{
-          src: "/videos/flaming-coffee.mp4",
-          poster: "/videos/flaming-coffee-poster.jpg",
-          label: "A barista at our coffee bar pouring a flaming coffee drink from a steel pitcher into a glass",
-        }}
-        accent={{
-          src: "/images/menu/butter-croissant.jpg",
-          alt: "Two butter croissants catching the light",
+          src: "/videos/espresso-pour.mp4",
+          poster: "/videos/espresso-pour-poster.jpg",
+          label: "Two streams of espresso pouring from the machine into a white cup topped with milk foam",
         }}
       />
 

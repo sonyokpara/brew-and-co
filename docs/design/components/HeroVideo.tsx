@@ -19,7 +19,7 @@ export function HeroVideo({
   label,
   className,
 }: {
-  /** An MP4 at least 1080px wide, ideally under 1MB. */
+  /** An MP4 at least 1080px wide, ideally under 2MB. */
   src: string;
   /** A still from the clip, shown before it plays and under reduced motion. */
   poster: string;

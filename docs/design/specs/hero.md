@@ -16,7 +16,7 @@ The first screen. It comes in two variants:
 | `body` | `string?` | Up to two sentences, `max-w-sm`. `steam-300` on `split`, `foam-100` on `background` |
 | `cta` | `ReactNode?` | One or two buttons: a primary, plus an optional outline. They wrap with a 12px gap |
 | `image` | `{ src, alt }` | `split`: a square overhead cup shot on near-black (a true cut-out also works). `background`: landscape photo at least 2400px wide, darker on the left |
-| `video` | `{ src, poster, label }?` | `split` only. A muted, looping MP4 that replaces `image` (rendered by [`HeroVideo`](../components/HeroVideo.tsx), a Client Component). Landscape is fine because it's cropped square; keep the action in the middle third. Aim for 1080p or less and under 1MB. `poster` is a still from the clip; `label` describes it for screen readers |
+| `video` | `{ src, poster, label }?` | `split` only. A muted, looping MP4 that replaces `image` (rendered by [`HeroVideo`](../components/HeroVideo.tsx), a Client Component). Landscape is fine because it's cropped square; keep the action in the middle third. Aim for 1080p or less and under 2MB. `poster` is a still from the clip; `label` describes it for screen readers |
 | `accent` | `{ src, alt }?` | `split` only. A square pastry shot on black, overlapping the cup's lower right at half its width |
 | `variant` | `"split" \| "background"` | Default `"split"` |
 

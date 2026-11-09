@@ -2,16 +2,18 @@ import Image, { type StaticImageData } from "next/image";
 import type { ReactNode } from "react";
 import { cn } from "./cn";
 import { Container } from "./Container";
+import { HeroVideo } from "./HeroVideo";
 
 type Img = { src: string | StaticImageData; alt: string };
 
 /**
  * Hero — see specs/hero.md
  *
- * `split` (default): headline left, an overhead cup right (a photo on
- * near-black with its edges faded out), an optional pastry overlapping it,
- * and the signature heartbeat line along the bottom. The cup "pours in",
- * steam rises from it and the line draws itself once.
+ * `split` (default): headline left, and on the right either a looping
+ * video or an overhead cup photo, edges faded into the dark, with an
+ * optional pastry overlapping it and the signature heartbeat line along the
+ * bottom. The art "pours in" and the line draws itself once. A photo also
+ * gets rising steam; a video brings its own movement.
  * `background`: a full-bleed photo behind the headline, darkened on the
  * text side so copy stays readable. The photo settles in once.
  *
@@ -23,6 +25,7 @@ export function Hero({
   body,
   cta,
   image,
+  video,
   accent,
   variant = "split",
 }: {
@@ -35,7 +38,12 @@ export function Hero({
    * split: square cut-out cup on a dark ground.
    * background: landscape photo (≥ 2400px wide) with a darker left third.
    */
-  image: Img;
+  image?: Img;
+  /**
+   * split only: a looping, muted clip that replaces `image`. Landscape works;
+   * keep the action in the middle third, since the frame is cropped square.
+   */
+  video?: { src: string; poster: string; label: string };
   /** split only: a smaller second photo (a pastry) overlapping the cup's lower right. */
   accent?: Img;
   variant?: "split" | "background";
@@ -63,7 +71,7 @@ export function Hero({
     </div>
   );
 
-  if (variant === "background") {
+  if (variant === "background" && image) {
     return (
       <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
         <Image
@@ -104,24 +112,35 @@ export function Hero({
         {copy}
 
         <div className="relative mx-auto aspect-square w-full max-w-[24rem] md:max-w-[34rem]">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            preload
-            sizes="(min-width: 768px) 34rem, 24rem"
-            className={cn("object-cover motion-safe:animate-pour-in", fade)}
-          />
-          {/* Steam: three soft plumes above the cup's center. */}
-          <div aria-hidden className="absolute inset-x-0 top-[18%] flex justify-center gap-6">
-            {[0, 0.8, 1.6].map((delay) => (
-              <span
-                key={delay}
-                style={{ animationDelay: `${delay}s` }}
-                className="h-16 w-3 rounded-full bg-foam-50/25 blur-md motion-safe:animate-steam motion-reduce:hidden"
+          {video ? (
+            <HeroVideo
+              src={video.src}
+              poster={video.poster}
+              label={video.label}
+              className={cn("absolute inset-0 motion-safe:animate-pour-in", fade)}
+            />
+          ) : image ? (
+            <>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                preload
+                sizes="(min-width: 768px) 34rem, 24rem"
+                className={cn("object-cover motion-safe:animate-pour-in", fade)}
               />
-            ))}
-          </div>
+              {/* Steam: three soft plumes above the cup's center. */}
+              <div aria-hidden className="absolute inset-x-0 top-[18%] flex justify-center gap-6">
+                {[0, 0.8, 1.6].map((delay) => (
+                  <span
+                    key={delay}
+                    style={{ animationDelay: `${delay}s` }}
+                    className="h-16 w-3 rounded-full bg-foam-50/25 blur-md motion-safe:animate-steam motion-reduce:hidden"
+                  />
+                ))}
+              </div>
+            </>
+          ) : null}
           {accent && (
             <div className="absolute -right-2 -bottom-8 aspect-square w-1/2 md:-right-8 md:-bottom-12">
               {/* `lighten` drops the photo's black ground so only the pastry shows over the glow. */}

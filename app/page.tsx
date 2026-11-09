@@ -43,9 +43,10 @@ export default async function Home() {
             </Button>
           </>
         }
-        image={{
-          src: "/images/menu/flat-white.jpg",
-          alt: "A flat white with rosetta latte art, seen from above on a dark table",
+        video={{
+          src: "/videos/flaming-coffee.mp4",
+          poster: "/videos/flaming-coffee-poster.jpg",
+          label: "A barista at our coffee bar pouring a flaming coffee drink from a steel pitcher into a glass",
         }}
         accent={{
           src: "/images/menu/butter-croissant.jpg",

@@ -12,6 +12,7 @@ export { SiteHeader, type NavItem } from "./SiteHeader";
 export { SiteFooter, type FooterColumn, type SocialLink } from "./SiteFooter";
 export { SectionHeading } from "./SectionHeading";
 export { Hero } from "./Hero";
+export { HeroVideo } from "./HeroVideo";
 export { ProductCard, type Product } from "./ProductCard";
 export { MerchCard } from "./MerchCard";
 export { FeatureItem } from "./FeatureItem";

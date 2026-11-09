@@ -16,6 +16,7 @@ The first screen. It comes in two variants:
 | `body` | `string?` | Up to two sentences, `max-w-sm`. `steam-300` on `split`, `foam-100` on `background` |
 | `cta` | `ReactNode?` | One or two buttons: a primary, plus an optional outline. They wrap with a 12px gap |
 | `image` | `{ src, alt }` | `split`: a square overhead cup shot on near-black (a true cut-out also works). `background`: landscape photo at least 2400px wide, darker on the left |
+| `video` | `{ src, poster, label }?` | `split` only. A muted, looping MP4 that replaces `image` (rendered by [`HeroVideo`](../components/HeroVideo.tsx), a Client Component). Landscape is fine because it's cropped square; keep the action in the middle third. Aim for 1080p or less and under 1MB. `poster` is a still from the clip; `label` describes it for screen readers |
 | `accent` | `{ src, alt }?` | `split` only. A square pastry shot on black, overlapping the cup's lower right at half its width |
 | `variant` | `"split" \| "background"` | Default `"split"` |
 
@@ -43,6 +44,7 @@ The title is `text-display` (48px) on mobile and `md:text-hero` (72px) from `md`
 |---|---|---|---|
 | split | Cup image | `animate-pour-in`: rises 16px and turns from −6° to 0° over 900ms, `ease-pour`, once | Shown in place |
 | split | Steam | Three blurred `foam-50/25` plumes, `animate-steam` looping every 3.2s, staggered by 0.8s | Hidden |
+| split | Video | Plays muted and inline on a loop once hydrated, with the same `animate-pour-in` entrance. A 40px round pause/play button sits at the frame's top right (`foam-50/40` border on `roast-950/60`), because looping motion over five seconds needs one (WCAG 2.2.2). No steam: the clip brings its own movement | Doesn't autoplay. The poster shows, and the button reads "Play video" |
 | split | Accent | `animate-pour-in`, 250ms after the cup | Shown in place |
 | split | Heartbeat line | `animate-line-reveal`: wiped in from the left with `clip-path` over 1.6s, 500ms after load. A stroke-dash draw isn't used because Chrome measures `pathLength` before the non-scaling stroke is applied, so the line stopped short | Shown in place |
 | background | Photo | `animate-settle-in`: fades in from 1.04× scale over 1.4s, `ease-pour`, once. No steam | Shown immediately |

@@ -42,6 +42,12 @@ export const Cart = (p: IconProps) => (
 export const Menu = (p: IconProps) => (
   <Base {...p}><path d="M4 7h16M4 12h16M4 17h16" /></Base>
 );
+export const Play = (p: IconProps) => (
+  <Base {...p}><path d="M8 5.5v13l10-6.5-10-6.5Z" /></Base>
+);
+export const Pause = (p: IconProps) => (
+  <Base {...p}><path d="M9 5.5v13M15 5.5v13" /></Base>
+);
 export const Close = (p: IconProps) => (
   <Base {...p}><path d="M6 6l12 12M18 6 6 18" /></Base>
 );

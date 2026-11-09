@@ -28,6 +28,7 @@ All photos are from Pexels and used under the Pexels license (https://www.pexels
 | home/open-mic.jpg | https://www.pexels.com/photo/a-man-singing-while-playing-the-acoustic-guitar-9614529/ | Bayram Er |
 | home/coffee-tasting.jpg | https://www.pexels.com/photo/coffee-tasting-setup-with-cups-and-spoons-34505585/ | Alina Skazka |
 | home/coffee-cupping.jpg | https://www.pexels.com/photo/cups-of-coffee-on-a-table-21967254/ | Masud Allahverdizade |
+| ../videos/flaming-coffee.mp4 (Pexels video; poster frame taken from it) | https://www.pexels.com/video/flame-over-kettle-and-glass-13662281/ | Emre Vonal |
 | home/open-mic-singer.jpg | https://www.pexels.com/photo/a-man-holding-the-microphone-and-singing-9008769/ | Yan Krukau |
 | about/interior.jpg | https://www.pexels.com/photo/cozy-rustic-cafe-with-ambient-lighting-40357091/ | Ec lipse |
 | about/founder-ama.jpg | https://www.pexels.com/photo/photo-of-woman-smiling-while-holding-cup-of-coffee-4349815/ | Ketut Subiyanto |

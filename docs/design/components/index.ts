@@ -22,3 +22,15 @@ export { TestimonialCard, type Testimonial } from "./TestimonialCard";
 export { TestimonialCarousel } from "./TestimonialCarousel";
 export { PulseDivider } from "./PulseDivider";
 export { NewsletterPanel, type NewsletterState } from "./NewsletterPanel";
+export { PageHeader } from "./PageHeader";
+export { MenuItemCard, menuBadgeTone, type MenuItemBadge } from "./MenuItemCard";
+export { MenuItemRow } from "./MenuItemRow";
+export { MenuCategoryNav } from "./MenuCategoryNav";
+export { EventCard } from "./EventCard";
+export {
+  ReservationForm,
+  type ReservationField,
+  type ReservationOptions,
+  type ReservationState,
+} from "./ReservationForm";
+export { ReservationDialog } from "./ReservationDialog";

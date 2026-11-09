@@ -1,13 +1,19 @@
 import Image, { type StaticImageData } from "next/image";
 import type { ReactNode } from "react";
+import { cn } from "./cn";
 import { Container } from "./Container";
 
 type Img = { src: string | StaticImageData; alt: string };
 
 /**
  * Hero — see specs/hero.md
- * The page's one orchestrated motion moment: the cup "pours in" and steam
- * rises from it. Everything else on the page stays still until touched.
+ *
+ * `split` (default): headline left, a cut-out cup right. The cup "pours in"
+ * and steam rises from it.
+ * `background`: a full-bleed photo behind the headline, darkened on the
+ * text side so copy stays readable. The photo settles in once.
+ *
+ * Either way this is the page's one orchestrated motion moment.
  */
 export function Hero({
   title,
@@ -15,15 +21,70 @@ export function Hero({
   body,
   cta,
   image,
+  variant = "split",
 }: {
   title: ReactNode;
   subtitle?: string;
   body?: string;
-  /** Usually <Button href arrow>. */
+  /** Usually a primary and an outline <Button>. */
   cta?: ReactNode;
-  /** Top-down cup shot on a dark ground, square, with edges that fade to roast-950. */
+  /**
+   * split: square cut-out cup on a dark ground.
+   * background: landscape photo (≥ 2400px wide) with a darker left third.
+   */
   image: Img;
+  variant?: "split" | "background";
 }) {
+  const copy = (
+    <div className="max-w-xl">
+      <h1
+        id="hero-title"
+        className="font-display text-display font-extrabold text-balance text-foam-50 md:text-hero"
+      >
+        {title}
+      </h1>
+      {subtitle && <p className="mt-6 text-title font-bold text-foam-50">{subtitle}</p>}
+      {body && (
+        <p
+          className={cn(
+            "mt-3 max-w-sm text-body",
+            variant === "background" ? "text-foam-100" : "text-steam-300",
+          )}
+        >
+          {body}
+        </p>
+      )}
+      {cta && <div className="mt-8 flex flex-wrap gap-3">{cta}</div>}
+    </div>
+  );
+
+  if (variant === "background") {
+    return (
+      <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          preload
+          sizes="100vw"
+          className="-z-20 object-cover motion-safe:animate-settle-in"
+        />
+        {/* Darken the text side and fade the bottom edge into the page. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-linear-to-r from-roast-950 via-roast-950/80 to-roast-950/20"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-linear-to-t from-roast-950 to-transparent"
+        />
+        <Container className="flex min-h-[36rem] items-center py-20 md:min-h-[42rem] md:py-28">
+          {copy}
+        </Container>
+      </section>
+    );
+  }
+
   return (
     <section aria-labelledby="hero-title" className="relative overflow-hidden">
       <div
@@ -31,17 +92,7 @@ export function Hero({
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_70%_40%,var(--color-roast-600)_0%,transparent_70%)] opacity-70"
       />
       <Container className="relative grid min-h-[34rem] items-center gap-10 py-16 md:grid-cols-[1fr_1.1fr] md:py-24">
-        <div className="max-w-xl">
-          <h1
-            id="hero-title"
-            className="font-display text-display font-extrabold text-balance text-foam-50 md:text-hero"
-          >
-            {title}
-          </h1>
-          {subtitle && <p className="mt-6 text-title font-bold text-foam-50">{subtitle}</p>}
-          {body && <p className="mt-3 max-w-sm text-body text-steam-300">{body}</p>}
-          {cta && <div className="mt-8">{cta}</div>}
-        </div>
+        {copy}
 
         <div className="relative mx-auto aspect-square w-full max-w-[34rem]">
           <Image

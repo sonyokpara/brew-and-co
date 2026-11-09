@@ -148,7 +148,7 @@ The arrow (`ArrowRight`) only goes on actions that take you somewhere: "Order no
 
 Spend motion in two places only:
 
-1. **Hero:** on load, the cup "pours in" (a 900ms rise and settle on `ease-pour`) while steam loops gently above it (`animate-steam`).
+1. **Hero:** on load, the cup "pours in" (a 900ms rise and settle on `ease-pour`) while steam loops gently above it (`animate-steam`). The background-photo variant replaces this with a single 1.4s settle-in of the photo (`animate-settle-in`).
 2. **PulseDivider:** the heartbeat line draws itself once, the first time it scrolls into view. This is the brand's signature moment. See [specs/pulse-divider.md](specs/pulse-divider.md).
 
 Everything else moves only in response to the user: hover color changes (150ms `ease-settle`), the card focus and hover glow (240ms), and a slow image zoom on card hover (600ms, at most 1.04×). Sections don't fade in as you scroll, and carousels don't autoplay.
@@ -166,6 +166,8 @@ Write like a good barista talks: warm, short and specific. Name the drink, the o
 | Our Happy Client | What regulars say |
 | Ready to transform your space? | Ready for a better cup? |
 | Subscribe | Get 15% off |
+| Book now / Submit | Reserve a table → Request table → "Table requested" |
+| Invalid input | That date has passed. Choose today or a later date. |
 | Read More | Read article |
 
 - Buttons say exactly what happens, and the result repeats that word: **Add to cart** leads to "Added to cart", and **Get 15% off** leads to "Check your inbox for your code."

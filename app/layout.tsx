@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { cacheLife } from "next/cache";
-import { Icons, SiteFooter, SiteHeader } from "@/docs/design/components";
+import { Icons, ReservationDialog, SiteFooter, SiteHeader } from "@/docs/design/components";
 import { bricolage, yellowtail } from "@/docs/design/tokens/fonts";
-import { openingHoursDisplay, site } from "@/lib/site";
+import { openingHoursDisplay, reservationOptions, site } from "@/lib/site";
+import { reserveTable } from "./actions/reserve";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,7 +31,18 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
 
-        <SiteHeader items={[...site.nav]} />
+        <SiteHeader
+          items={[...site.nav]}
+          cta={
+            <ReservationDialog
+              reserve={reserveTable}
+              options={reservationOptions}
+              timeZone={site.timeZone}
+              bookingWindowDays={site.bookingWindowDays}
+              size="sm"
+            />
+          }
+        />
 
         <main id="content" className="flex-1">
           {children}

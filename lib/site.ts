@@ -72,3 +72,10 @@ export function formatTime(hhmm: string): string {
   const h12 = h % 12 === 0 ? 12 : h % 12;
   return m === 0 ? `${h12}${suffix}` : `${h12}:${String(m).padStart(2, "0")}${suffix}`;
 }
+
+/** Everything the reservation form needs, serializable for Client Components. */
+export const reservationOptions = {
+  slotsByWeekday: Object.fromEntries([0, 1, 2, 3, 4, 5, 6].map((d) => [d, bookingSlots(d)])),
+  maxPartySize: site.maxPartySize,
+  phone: site.phone.display,
+};

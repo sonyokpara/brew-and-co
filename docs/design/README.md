@@ -51,6 +51,25 @@ Tailwind v4 finds class names in `docs/` automatically. I checked that every tok
 | `PulseDivider` (signature) | Client | [pulse-divider.md](specs/pulse-divider.md) |
 | `NewsletterPanel` | Client + Server Action | [newsletter-form.md](specs/newsletter-form.md) |
 | `SiteFooter` | Server | [site-footer.md](specs/site-footer.md) |
+| `PageHeader` | Server | [page-header.md](specs/page-header.md) |
+| `MenuItemCard` (+ `menuBadgeTone`) | Server | [menu-item-card.md](specs/menu-item-card.md) |
+| `MenuItemRow` | Server | [menu-item-row.md](specs/menu-item-row.md) |
+| `MenuCategoryNav` | Client | [menu-category-nav.md](specs/menu-category-nav.md) |
+| `EventCard` | Server | [event-card.md](specs/event-card.md) |
+| `ReservationDialog` / `ReservationForm` | Client + Server Action | [reservation.md](specs/reservation.md) |
+
+## Where the site's content lives
+
+The design system is content-agnostic. Brew & Co.'s own content lives outside `docs/design`:
+
+| Path | Holds |
+|---|---|
+| `data/menu-items.csv` | The menu: category, slug, name, description, price (GH₵), badge, image file |
+| `lib/menu.ts` | Loads and groups the menu (`getMenu`, `getFeaturedItems`) |
+| `lib/events.ts` | Recurring events and `getUpcomingEvents` |
+| `lib/site.ts` | Address, phone, opening hours, booking rules, nav |
+| `lib/reservations.ts`, `app/actions/reserve.ts` | Reservation validation and the storage stub |
+| `public/images/` | Pexels photos, credited in `public/images/CREDITS.md` |
 | `Icons.*` | Server | [style-guide.md#iconography](style-guide.md#iconography) |
 
 ## How the reference maps to components

@@ -23,7 +23,8 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
 
   return (
     <html lang="en" className={`${bricolage.variable} ${yellowtail.variable} h-full`}>
-      <body className="flex min-h-full flex-col">
+      {/* Browser extensions (e.g. Grammarly) add attributes to <body> before hydration. */}
+      <body className="flex min-h-full flex-col" suppressHydrationWarning>
         <a
           href="#content"
           className="sr-only z-50 rounded-full bg-crema-500 px-5 py-3 font-semibold text-ink focus:not-sr-only focus:fixed focus:top-3 focus:left-3"

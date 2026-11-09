@@ -51,6 +51,7 @@ export default function AboutPage() {
               src="/images/about/interior.jpg"
               alt="Inside Brew & Co., with rattan lamps hanging over wooden tables and chairs"
               fill
+              loading="eager"
               sizes="(min-width: 1024px) 36rem, 100vw"
               className="object-cover"
             />

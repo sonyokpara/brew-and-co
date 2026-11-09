@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Button,
   Container,
@@ -31,9 +32,9 @@ export default async function Home() {
   return (
     <>
       <Hero
-        variant="background"
         title="Late coffee in the heart of Kumasi"
-        body="Specialty coffee, fresh pastries and light lunches in Adum. Open until midnight on Fridays and Saturdays."
+        subtitle="Open until midnight on Fridays and Saturdays"
+        body="Specialty coffee, fresh pastries and light lunches on Prempeh II Street in Adum."
         cta={
           <>
             {reserve({ size: "lg" })}
@@ -43,8 +44,12 @@ export default async function Home() {
           </>
         }
         image={{
-          src: "/images/home/hero.jpg",
-          alt: "A desk lamp lighting brewing gear and a handwritten espresso menu on a coffee bar at night",
+          src: "/images/menu/flat-white.jpg",
+          alt: "A flat white with rosetta latte art, seen from above on a dark table",
+        }}
+        accent={{
+          src: "/images/menu/butter-croissant.jpg",
+          alt: "Two butter croissants catching the light",
         }}
       />
 
@@ -100,52 +105,96 @@ export default async function Home() {
         </Container>
       </Section>
 
-      <Section tone="alt" aria-labelledby="visit">
-        <Container className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-start">
+      <Section tone="alt" aria-labelledby="made-here" className="overflow-hidden">
+        <Container className="grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            <SectionHeading
+              id="made-here"
+              title="Made here, from the roast to the bun"
+              description="Almost nothing on the counter arrives ready-made."
+            />
+            <div className="flex flex-col gap-8">
+              <FeatureItem icon={<Icons.Bean />} title="Roasted every week">
+                Our house blend pairs a washed Ethiopian with a Colombian. We roast it in small
+                batches, so it reaches your cup within days.
+              </FeatureItem>
+              <FeatureItem icon={<Icons.Flame />} title="Baked before sunrise">
+                Yaw lights the ovens at 4am. Croissants, buns and muffins are on the shelf by 7, and
+                the almond croissants go first.
+              </FeatureItem>
+              <FeatureItem icon={<Icons.Cup />} title="Ashanti cocoa in the mocha">
+                Dark chocolate made from cocoa grown in the Ashanti Region, including beans from a
+                cooperative near Yaw&apos;s grandmother&apos;s farm.
+              </FeatureItem>
+            </div>
+            <Button href="/about" variant="link" arrow className="mt-10">
+              Read our story
+            </Button>
+          </div>
+          <div className="relative -mx-4 aspect-[3/2] sm:mx-0 lg:-mr-16 lg:aspect-[4/5] xl:-mr-28">
+            <Image
+              src="/images/about/roasting.jpg"
+              alt="Freshly roasted coffee beans turning in a roaster's cooling tray"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover [mask-image:radial-gradient(closest-side,#000_55%,transparent_100%)]"
+            />
+          </div>
+        </Container>
+      </Section>
+
+      <Section aria-labelledby="visit">
+        <Container className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-card border border-espresso-600 shadow-card lg:aspect-[5/6]">
+            <Image
+              src="/images/home/hero.jpg"
+              alt="A desk lamp lighting brewing gear and a handwritten espresso menu on our bar at night"
+              fill
+              sizes="(min-width: 1024px) 34rem, 100vw"
+              className="object-cover object-[72%_50%]"
+            />
+          </div>
           <div>
             <SectionHeading
               id="visit"
               title="Come and stay a while"
               description="Pull up a chair from first espresso to last orders."
             />
-            <div className="flex flex-col gap-8">
-              <FeatureItem icon={<Icons.Cup />} title="Specialty coffee">
-                A house blend roasted weekly, single origins on rotation, and baristas happy to talk you
-                through them.
-              </FeatureItem>
-              <FeatureItem icon={<Icons.Flame />} title="Fresh pastries">
-                Croissants, buns and muffins baked before sunrise. The almond croissants go first.
-              </FeatureItem>
-              <FeatureItem icon={<Icons.Leaf />} title="Light lunches">
-                Sandwiches made to order on our own bread, served until 4pm.
-              </FeatureItem>
+            <div className="grid gap-8 sm:grid-cols-2">
+              <div>
+                <h3 className="text-caption font-semibold text-balance text-foam-50">Find us</h3>
+                <address className="mt-2 text-body text-steam-300 not-italic">
+                  {site.address.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                  <a
+                    href={site.phone.href}
+                    className="mt-2 block text-foam-50 transition-colors duration-150 ease-settle hover:text-crema-300"
+                  >
+                    {site.phone.display}
+                  </a>
+                </address>
+              </div>
+              <div>
+                <h3 className="text-caption font-semibold text-balance text-foam-50">Opening hours</h3>
+                <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-body">
+                  {openingHoursDisplay.map((h) => (
+                    <div key={h.days} className="contents">
+                      <dt className="text-steam-300">{h.days}</dt>
+                      <dd className="text-foam-50 tabular-nums">{h.hours}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
             </div>
-          </div>
-
-          <div className="rounded-card border border-espresso-600 bg-(image:--bg-card) p-6 shadow-card sm:p-8">
-            <h3 className="text-title font-bold text-balance text-foam-50">Visit us</h3>
-            <address className="mt-4 text-body text-steam-300 not-italic">
-              {site.address.map((line) => (
-                <span key={line} className="block">
-                  {line}
-                </span>
-              ))}
-              <a href={site.phone.href} className="mt-2 block text-foam-50 transition-colors duration-150 ease-settle hover:text-crema-300">
-                {site.phone.display}
-              </a>
-            </address>
-            <h4 className="mt-6 text-caption font-semibold text-balance text-foam-50">Opening hours</h4>
-            <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-body">
-              {openingHoursDisplay.map((h) => (
-                <div key={h.days} className="contents">
-                  <dt className="text-steam-300">{h.days}</dt>
-                  <dd className="text-foam-50 tabular-nums">{h.hours}</dd>
-                </div>
-              ))}
-            </dl>
-            <Button href={site.mapHref} variant="outline" className="mt-8" target="_blank" rel="noopener noreferrer">
-              Get directions
-            </Button>
+            <div className="mt-10 flex flex-wrap gap-3">
+              {reserve({ size: "md" })}
+              <Button href={site.mapHref} variant="outline" target="_blank" rel="noopener noreferrer">
+                Get directions
+              </Button>
+            </div>
           </div>
         </Container>
       </Section>

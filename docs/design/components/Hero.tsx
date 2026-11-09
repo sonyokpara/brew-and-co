@@ -8,8 +8,10 @@ type Img = { src: string | StaticImageData; alt: string };
 /**
  * Hero — see specs/hero.md
  *
- * `split` (default): headline left, a cut-out cup right. The cup "pours in"
- * and steam rises from it.
+ * `split` (default): headline left, an overhead cup right (a photo on
+ * near-black with its edges faded out), an optional pastry overlapping it,
+ * and the signature heartbeat line along the bottom. The cup "pours in",
+ * steam rises from it and the line draws itself once.
  * `background`: a full-bleed photo behind the headline, darkened on the
  * text side so copy stays readable. The photo settles in once.
  *
@@ -21,6 +23,7 @@ export function Hero({
   body,
   cta,
   image,
+  accent,
   variant = "split",
 }: {
   title: ReactNode;
@@ -33,6 +36,8 @@ export function Hero({
    * background: landscape photo (≥ 2400px wide) with a darker left third.
    */
   image: Img;
+  /** split only: a smaller second photo (a pastry) overlapping the cup's lower right. */
+  accent?: Img;
   variant?: "split" | "background";
 }) {
   const copy = (
@@ -86,26 +91,29 @@ export function Hero({
     );
   }
 
+  // A photo shot on near-black, faded at its edges so it reads as a cut-out on the page.
+  const fade = "[mask-image:radial-gradient(closest-side,#000_68%,transparent_100%)]";
+
   return (
-    <section aria-labelledby="hero-title" className="relative overflow-hidden">
+    <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_70%_40%,var(--color-roast-600)_0%,transparent_70%)] opacity-70"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(55%_75%_at_72%_42%,var(--color-roast-600)_0%,transparent_70%)] opacity-80"
       />
-      <Container className="relative grid min-h-[34rem] items-center gap-10 py-16 md:grid-cols-[1fr_1.1fr] md:py-24">
+      <Container className="grid min-h-[34rem] items-center gap-6 pt-12 pb-24 md:grid-cols-[1fr_1.1fr] md:gap-10 md:pt-16 md:pb-32">
         {copy}
 
-        <div className="relative mx-auto aspect-square w-full max-w-[34rem]">
+        <div className="relative mx-auto aspect-square w-full max-w-[24rem] md:max-w-[34rem]">
           <Image
             src={image.src}
             alt={image.alt}
             fill
             preload
-            sizes="(min-width: 768px) 34rem, 90vw"
-            className="object-contain motion-safe:animate-pour-in"
+            sizes="(min-width: 768px) 34rem, 24rem"
+            className={cn("object-cover motion-safe:animate-pour-in", fade)}
           />
           {/* Steam: three soft plumes above the cup's center. */}
-          <div aria-hidden className="absolute inset-x-0 top-[22%] flex justify-center gap-6">
+          <div aria-hidden className="absolute inset-x-0 top-[18%] flex justify-center gap-6">
             {[0, 0.8, 1.6].map((delay) => (
               <span
                 key={delay}
@@ -114,8 +122,40 @@ export function Hero({
               />
             ))}
           </div>
+          {accent && (
+            <div className="absolute -right-2 -bottom-8 aspect-square w-1/2 md:-right-8 md:-bottom-12">
+              {/* `lighten` drops the photo's black ground so only the pastry shows over the glow. */}
+              <Image
+                src={accent.src}
+                alt={accent.alt}
+                fill
+                loading="eager"
+                sizes="(min-width: 768px) 17rem, 12rem"
+                style={{ animationDelay: "250ms" }}
+                className={cn("object-cover mix-blend-lighten motion-safe:animate-pour-in", fade)}
+              />
+            </div>
+          )}
         </div>
       </Container>
+
+      {/* The signature heartbeat: a flat line that kicks twice under the cup, drawn once on load. */}
+      <svg
+        aria-hidden
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+        style={{ animationDelay: "500ms" }}
+        className="pointer-events-none absolute inset-x-0 bottom-6 -z-10 h-16 w-full text-foam-50 animate-line-reveal md:bottom-10 md:h-24"
+      >
+        <path
+          d="M0 90 H700 L722 90 L740 40 L760 112 L776 90 H812 L834 90 L852 14 L874 116 L890 90 H1200"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2.5}
+          strokeLinejoin="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
     </section>
   );
 }

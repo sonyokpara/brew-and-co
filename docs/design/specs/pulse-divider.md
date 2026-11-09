@@ -21,6 +21,7 @@ A steaming cup sits on a flat white line that kicks into two heartbeats, then ru
 - Full bleed up to 90rem wide. The cup sits 4% in from the left, `clamp(9rem, 22vw, 17rem)` wide.
 - The line runs along the lower 40% of the block in `foam-50`, with a 3px non-scaling stroke.
 - Place it between the journal and testimonials sections, with no heading of its own.
+- The split [Hero](hero.md) carries the same heartbeat along its bottom edge. Brew & Co.'s homepage uses that instead, so don't add PulseDivider to a page that has a split hero.
 
 ## Rules
 

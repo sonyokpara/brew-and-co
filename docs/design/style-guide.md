@@ -140,7 +140,8 @@ Inner radii are always smaller than outer ones. A photo inset 8px inside a 16px 
 ## Imagery
 
 - **Overhead or three-quarter shots on dark ground, lit from one side.** Backgrounds should fall off to near-black so photos blend into `roast-950` without a visible box.
-- **Hero art** is a single cut-out cup, square and centered, with room above it for the steam.
+- **Hero art** is a single overhead cup, square and centered, with room above it for the steam, plus an optional pastry overlapping it. Photos shot on near-black work without cutting out: the hero fades their edges with a radial mask.
+- **Feature photos** (the homepage's "Made here" roaster shot) can bleed toward the page edge and fade out with the same radial mask, like the bean splash in the reference. Keep them to one per page.
 - **Product photos** are 4:3 and include a prop (flower, beans, saucer) for scale and warmth.
 - **Merch photos** are bright product shots. They sit in white `paper` frames on purpose: the contrast says "this is a thing you can buy" rather than "this is the café".
 - Always use `next/image` with `sizes` for responsive images (`fill`, or anything whose rendered width changes with the viewport). Images rendered at a fixed `width` and `height`, such as avatars, partner logos and the PulseDivider cup, are exempt, because Next already serves them at 1× and 2×. Only the hero image gets `preload`. Next 16 deprecated `priority`, so don't use it.
@@ -157,7 +158,7 @@ The arrow (`ArrowRight`) only goes on actions that take you somewhere: "Order no
 Spend motion in two places only:
 
 1. **Hero:** on load, the cup "pours in" (a 900ms rise and settle on `ease-pour`) while steam loops gently above it (`animate-steam`). The background-photo variant replaces this with a single 1.4s settle-in of the photo (`animate-settle-in`).
-2. **PulseDivider:** the heartbeat line draws itself once, the first time it scrolls into view. This is the brand's signature moment. See [specs/pulse-divider.md](specs/pulse-divider.md).
+2. **The heartbeat line:** it draws itself once. In the split hero it wipes in on load (`animate-line-reveal`); as a standalone PulseDivider it draws the first time it scrolls into view. This is the brand's signature moment, so a page shows it once. See [specs/hero.md](specs/hero.md) and [specs/pulse-divider.md](specs/pulse-divider.md).
 
 Everything else moves only in response to the user: hover color changes (150ms `ease-settle`), the card focus and hover glow (240ms), and a slow image zoom on card hover (600ms, at most 1.04×). Sections don't fade in as you scroll, and carousels don't autoplay.
 

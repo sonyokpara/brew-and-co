@@ -10,7 +10,7 @@
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│ Brew          Home  Shop  Menu  Journal  Contact      ⌕ 🛒³ ◯ │  h-18 (72px)
+│ Brew              Home   Menu   About      [Reserve a table] │  h-18 (72px)
 │ & Co.                                                        │
 └──────────────────────────────────────────────────────────────┘
 ```
@@ -19,23 +19,25 @@
 
 | Prop | Type | Notes |
 |---|---|---|
-| `items` | `{ label, href }[]` | Five items at most. The reference's "Category" becomes "Shop" and "Blog" becomes "Journal" |
-| `cartCount` | `number` | Shows a crema count bubble when above 0 |
+| `items` | `{ label, href }[]` | Five items at most. Brew & Co. uses Home, Menu, About |
+| `search` | `boolean` | Shows the search icon button. Off by default |
+| `cart` | `{ count }?` | Shows the cart link, with a crema count bubble when above 0. Leave it out for sites without a shop |
+| `cta` | `ReactNode?` | The header's one primary action, e.g. `<ReservationDialog size="sm" />`. Visible at every width |
 | `account` | `ReactNode?` | Avatar or "Sign in" link; hidden below `sm` |
 
 ### Visual
 
 - Sticky, `bg-roast-950/85` with `backdrop-blur-md` and a `roast-700/60` bottom border, so content scrolls under it softly.
 - Nav links are `text-caption` medium in `foam-100`. Hover turns them `crema-300`. The current page gets `aria-current="page"` and turns `crema-500`. Don't add an underline; color alone marks the current page, and `aria-current` covers it for screen readers.
-- Utility icons are ghost `IconButton`s (40px).
+- Utility icons are ghost `IconButton`s (40px). The `cta` slot holds the only crema button in the header.
 
 ### Responsive
 
 - Below `md`, the inline nav is hidden and a menu toggle appears (`aria-expanded`, `aria-controls="mobile-nav"`). The panel lists links at 48px row height in `text-lead`, and choosing one closes it.
-- The logo, cart and toggle are always visible.
+- The logo, `cta`, cart (if shown) and toggle are always visible.
 
 ### Accessibility
 
 - There are two `<nav aria-label="Main">` landmarks, and only one is visible at a time because the other is `hidden`.
-- The cart link announces its count: "Cart, 3 items".
+- When shown, the cart link announces its count: "Cart, 3 items".
 - Add a "Skip to content" link as the first child of `<body>` in `app/layout.tsx`. It isn't part of the header.

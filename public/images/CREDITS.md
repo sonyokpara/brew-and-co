@@ -27,6 +27,8 @@ All photos are from Pexels and used under the Pexels license (https://www.pexels
 | home/hero.jpg | https://www.pexels.com/photo/cozy-cafe-menu-under-warm-lighting-32265905/ | Việt Anh Nguyễn |
 | home/open-mic.jpg | https://www.pexels.com/photo/a-man-singing-while-playing-the-acoustic-guitar-9614529/ | Bayram Er |
 | home/coffee-tasting.jpg | https://www.pexels.com/photo/coffee-tasting-setup-with-cups-and-spoons-34505585/ | Alina Skazka |
+| home/coffee-tasting-2.jpg | https://www.pexels.com/photo/barista-pouring-brewed-coffee-into-cup-with-glass-pot-31961245/ | Nano Erdozain |
+| home/open-mic-2.jpg | https://www.pexels.com/photo/man-standing-in-front-of-microphone-4073982/ | Peter Holmboe |
 | about/interior.jpg | https://www.pexels.com/photo/cozy-rustic-cafe-with-ambient-lighting-40357091/ | Ec lipse |
 | about/founder-ama.jpg | https://www.pexels.com/photo/photo-of-woman-smiling-while-holding-cup-of-coffee-4349815/ | Ketut Subiyanto |
 | about/founder-yaw.jpg | https://www.pexels.com/photo/man-working-in-bakery-by-display-window-7447281/ | Gustavo Fring |

@@ -9,8 +9,8 @@ type RecurringEvent = {
   /** "HH:MM" local Kumasi time (GMT, no daylight saving) */
   start: string;
   end: string;
-  image: string;
-  imageAlt: string;
+  /** Alternated week by week so back-to-back dates don't repeat a photo. */
+  images: { src: string; alt: string }[];
 };
 
 export type UpcomingEvent = {
@@ -33,8 +33,16 @@ export const recurringEvents: RecurringEvent[] = [
     weekday: 5,
     start: "19:00",
     end: "22:00",
-    image: "/images/home/open-mic.jpg",
-    imageAlt: "A singer playing an acoustic guitar under a spotlight on a small stage",
+    images: [
+      {
+        src: "/images/home/open-mic.jpg",
+        alt: "A singer playing an acoustic guitar under a spotlight on a small stage",
+      },
+      {
+        src: "/images/home/open-mic-2.jpg",
+        alt: "A performer silhouetted at a microphone stand in a beam of stage light",
+      },
+    ],
   },
   {
     id: "coffee-tasting",
@@ -44,8 +52,16 @@ export const recurringEvents: RecurringEvent[] = [
     weekday: 6,
     start: "09:00",
     end: "11:00",
-    image: "/images/home/coffee-tasting.jpg",
-    imageAlt: "Cupping bowls of ground coffee and tasting spoons set out on a wooden table",
+    images: [
+      {
+        src: "/images/home/coffee-tasting.jpg",
+        alt: "Cupping bowls of ground coffee and tasting spoons set out on a wooden table",
+      },
+      {
+        src: "/images/home/coffee-tasting-2.jpg",
+        alt: "Freshly brewed coffee pouring from a glass server at the bar",
+      },
+    ],
   },
 ];
 
@@ -73,14 +89,16 @@ export async function getUpcomingEvents(count = 4): Promise<UpcomingEvent[]> {
       if (e.weekday !== day.getUTCDay()) continue;
       const end = atTime(day, e.end);
       if (end <= now) continue;
+      // Pick by week number, so a given date keeps its photo as the list rolls forward.
+      const photo = e.images[Math.floor(day.getTime() / (7 * 86_400_000)) % e.images.length];
       upcoming.push({
         key: `${e.id}-${day.toISOString().slice(0, 10)}`,
         title: e.title,
         description: e.description,
         start: atTime(day, e.start).toISOString(),
         end: end.toISOString(),
-        image: e.image,
-        imageAlt: e.imageAlt,
+        image: photo.src,
+        imageAlt: photo.alt,
       });
     }
   }

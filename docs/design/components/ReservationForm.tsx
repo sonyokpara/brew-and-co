@@ -110,10 +110,11 @@ export function ReservationForm({
     </div>
   );
 
-  const a11y = (f: ReservationField) => ({
+  // Only point aria-describedby at a message that is actually rendered.
+  const a11y = (f: ReservationField, hasHint = false) => ({
     id: `${id}-${f}`,
     "aria-invalid": errors[f] ? true : undefined,
-    "aria-describedby": errId(f),
+    "aria-describedby": errors[f] || hasHint ? errId(f) : undefined,
   });
 
   return (
@@ -136,7 +137,7 @@ export function ReservationForm({
         "partySize",
         "Party size",
         <select
-          {...a11y("partySize")}
+          {...a11y("partySize", true)}
           name="partySize"
           value={partySize}
           onChange={(e) => setPartySize(e.target.value)}

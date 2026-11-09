@@ -89,7 +89,7 @@ export function ReservationDialog({
         <div className="p-6 sm:p-8">
           <div className="mb-6 flex items-start justify-between gap-4">
             <div>
-              <h2 id={titleId} className="font-display text-heading font-bold text-foam-50">
+              <h2 id={titleId} className="font-display text-heading font-bold text-balance text-foam-50">
                 Reserve a table
               </h2>
               <p className="mt-1 text-caption text-steam-300">

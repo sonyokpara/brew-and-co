@@ -69,10 +69,11 @@ export function Hero({
           sizes="100vw"
           className="-z-20 object-cover motion-safe:animate-settle-in"
         />
-        {/* Darken the text side and fade the bottom edge into the page. */}
+        {/* Darken the text side and fade the bottom edge into the page. Below lg the
+            copy spans most of the photo, so the right end stays darker. */}
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-linear-to-r from-roast-950 via-roast-950/80 to-roast-950/20"
+          className="absolute inset-0 -z-10 bg-linear-to-r from-roast-950 via-roast-950/80 to-roast-950/70 lg:to-roast-950/20"
         />
         <div
           aria-hidden

@@ -48,7 +48,7 @@ export default async function Home() {
         }}
       />
 
-      <Section aria-labelledby="popular">
+      <Section tone="alt" aria-labelledby="popular">
         <Container>
           <SectionHeading
             id="popular"
@@ -69,14 +69,14 @@ export default async function Home() {
                 price={item.price}
                 currency={site.currency}
                 badge={item.badge}
-                image={{ src: item.image, alt: item.name }}
+                image={{ src: item.image, alt: item.imageAlt }}
               />
             ))}
           </div>
         </Container>
       </Section>
 
-      <Section tone="alt" aria-labelledby="events-title" id="events" className="scroll-mt-18">
+      <Section aria-labelledby="events-title" id="events" className="scroll-mt-18">
         <Container>
           <SectionHeading
             id="events-title"
@@ -100,7 +100,7 @@ export default async function Home() {
         </Container>
       </Section>
 
-      <Section aria-labelledby="visit">
+      <Section tone="alt" aria-labelledby="visit">
         <Container className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-start">
           <div>
             <SectionHeading
@@ -130,7 +130,7 @@ export default async function Home() {
                   {line}
                 </span>
               ))}
-              <a href={site.phone.href} className="mt-2 block text-foam-50 hover:text-crema-300">
+              <a href={site.phone.href} className="mt-2 block text-foam-50 transition-colors duration-150 ease-settle hover:text-crema-300">
                 {site.phone.display}
               </a>
             </address>

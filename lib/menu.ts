@@ -14,6 +14,8 @@ export type MenuItem = {
   badge?: MenuBadge;
   /** Public path, e.g. /images/menu/flat-white.jpg */
   image: string;
+  /** Describes the photo; falls back to the item name. */
+  imageAlt: string;
 };
 
 export type MenuCategory = {
@@ -94,6 +96,7 @@ async function loadItems(): Promise<MenuItem[]> {
     price: col("price"),
     badge: col("badge"),
     image: col("image"),
+    alt: header.indexOf("alt"),
   };
 
   return rows.map((r, line) => {
@@ -110,6 +113,7 @@ async function loadItems(): Promise<MenuItem[]> {
       price,
       badge: badge === "Popular" || badge === "House favorite" ? badge : undefined,
       image: `/images/menu/${r[c.image].trim()}`,
+      imageAlt: (c.alt >= 0 ? r[c.alt]?.trim() : "") || r[c.name].trim(),
     };
   });
 }

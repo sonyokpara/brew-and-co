@@ -57,10 +57,10 @@ export function MenuCategoryNav({ categories }: { categories: { id: string; name
               aria-current={c.id === active ? "location" : undefined}
               onClick={() => setActive(c.id)}
               className={cn(
-                "inline-flex h-10 items-center rounded-full px-4 text-caption font-medium whitespace-nowrap transition-colors duration-150 ease-settle",
+                "inline-flex h-10 items-center rounded-full border px-4 text-caption font-medium whitespace-nowrap transition-colors duration-150 ease-settle",
                 c.id === active
-                  ? "bg-crema-500 text-ink"
-                  : "border border-foam-50/20 text-foam-100 hover:border-crema-400 hover:text-crema-300",
+                  ? "border-crema-500 bg-crema-500 text-ink"
+                  : "border-foam-50/20 text-foam-100 hover:border-crema-400 hover:text-crema-300",
               )}
             >
               {c.name}

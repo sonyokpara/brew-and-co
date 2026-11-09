@@ -45,7 +45,7 @@ export function SiteHeader({
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
-                  className="text-caption font-medium text-foam-100 transition-colors hover:text-crema-300 aria-[current=page]:text-crema-500"
+                  className="text-caption font-medium text-foam-100 transition-colors duration-150 ease-settle hover:text-crema-300 aria-[current=page]:text-crema-500"
                 >
                   {item.label}
                 </Link>
@@ -64,13 +64,13 @@ export function SiteHeader({
             <Link
               href="/cart"
               aria-label={`Cart, ${cart.count} ${cart.count === 1 ? "item" : "items"}`}
-              className="relative inline-grid size-10 place-items-center rounded-full text-foam-50 hover:bg-foam-50/10 hover:text-crema-300"
+              className="relative inline-grid size-10 place-items-center rounded-full text-foam-50 transition-colors duration-150 ease-settle hover:bg-foam-50/10 hover:text-crema-300"
             >
               <Cart />
               {cart.count > 0 && (
                 <span
                   aria-hidden
-                  className="absolute top-1 right-1 grid min-w-4 place-items-center rounded-full bg-crema-500 px-1 text-[0.625rem] font-bold text-ink"
+                  className="absolute top-1 right-1 grid min-w-4 place-items-center rounded-full bg-crema-500 px-1 text-micro font-bold text-ink"
                 >
                   {cart.count}
                 </span>

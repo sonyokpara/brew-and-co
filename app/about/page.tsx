@@ -159,14 +159,14 @@ export default function AboutPage() {
       </Section>
 
       <Section aria-labelledby="visit-cta">
-        <Container className="text-center">
-          <h2 id="visit-cta" className="font-display text-heading font-bold text-balance text-foam-50 md:text-heading-lg">
-            Come and say hello
-          </h2>
-          <p className="mx-auto mt-3 max-w-md text-body text-steam-300">
-            Ama will be on the bar and Yaw will probably have flour on his shirt.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <Container>
+          <SectionHeading
+            id="visit-cta"
+            title="Come and say hello"
+            description="Ama will be on the bar and Yaw will probably have flour on his shirt."
+            align="center"
+          />
+          <div className="flex flex-wrap justify-center gap-3">
             <ReservationDialog
               reserve={reserveTable}
               options={reservationOptions}

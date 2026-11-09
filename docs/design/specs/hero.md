@@ -31,7 +31,7 @@ The title is `text-display` (48px) on mobile and `md:text-hero` (72px) from `md`
 ## Layout: background
 
 - The photo fills the section (`object-cover`), at a minimum height of 36rem (42rem from `md`). Copy is left-aligned and vertically centered.
-- Two overlays keep the copy readable: a left-to-right gradient from solid `roast-950` through `roast-950/80` to `roast-950/20`, and a 160px fade at the bottom into the page.
+- Two overlays keep the copy readable: a left-to-right gradient from solid `roast-950` through `roast-950/80` to `roast-950/20` (`roast-950/70` below `lg`, where the copy column covers most of the photo's width), and a 160px fade at the bottom into the page.
 - Choose photos whose left third is already dark. Check foam text against the lightest area behind it; it must reach 4.5:1.
 
 ## Motion (one of the two motion moments)

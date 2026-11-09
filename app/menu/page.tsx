@@ -5,6 +5,7 @@ import {
   MenuItemRow,
   PageHeader,
   ReservationDialog,
+  SectionHeading,
 } from "@/docs/design/components";
 import { getMenu } from "@/lib/menu";
 import { openingHoursDisplay, reservationOptions, site } from "@/lib/site";
@@ -46,17 +47,12 @@ export default async function MenuPage() {
               aria-labelledby={`${category.id}-title`}
               className="scroll-mt-36"
             >
-              <div className="mb-10 border-b border-roast-700 pb-6">
-                <h2
-                  id={`${category.id}-title`}
-                  className="font-display text-heading font-bold text-foam-50 md:text-heading-lg"
-                >
-                  {category.name}
-                </h2>
-                {category.intro && (
-                  <p className="mt-2 max-w-prose text-body text-steam-300">{category.intro}</p>
-                )}
-              </div>
+              <SectionHeading
+                id={`${category.id}-title`}
+                title={category.name}
+                description={category.intro}
+                className="border-b border-roast-700 pb-6"
+              />
               <ul className="grid gap-x-12 gap-y-10 lg:grid-cols-2">
                 {category.items.map((item) => (
                   <MenuItemRow
@@ -66,7 +62,7 @@ export default async function MenuPage() {
                     price={item.price}
                     currency={site.currency}
                     badge={item.badge}
-                    image={{ src: item.image, alt: item.name }}
+                    image={{ src: item.image, alt: item.imageAlt }}
                   />
                 ))}
               </ul>

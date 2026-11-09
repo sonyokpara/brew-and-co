@@ -59,7 +59,7 @@ export function SiteFooter({
                 href={visit.mapHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-block text-caption font-semibold text-crema-500 underline-offset-4 hover:text-crema-300 hover:underline"
+                className="mt-4 inline-block text-caption font-semibold text-steam-300 underline-offset-4 transition-colors duration-150 ease-settle hover:text-foam-50 hover:underline"
               >
                 Get directions
               </a>
@@ -73,7 +73,7 @@ export function SiteFooter({
             <ul className="mt-4 flex flex-col gap-3">
               {col.links.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-caption text-steam-300 hover:text-foam-50">
+                  <Link href={l.href} className="text-caption text-steam-300 transition-colors duration-150 ease-settle hover:text-foam-50">
                     {l.label}
                   </Link>
                 </li>
@@ -92,7 +92,7 @@ export function SiteFooter({
                   aria-label={s.label}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="inline-grid size-10 place-items-center rounded-full text-foam-50 hover:bg-foam-50/10 hover:text-crema-300"
+                  className="inline-grid size-10 place-items-center rounded-full text-foam-50 transition-colors duration-150 ease-settle hover:bg-foam-50/10 hover:text-crema-300"
                 >
                   {s.icon}
                 </a>

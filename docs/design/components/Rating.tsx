@@ -1,7 +1,7 @@
 import { cn } from "./cn";
 import { Star } from "./icons";
 
-/** Rating — see specs/rating.md. Read-only display. */
+/** Rating — see specs/badge-rating-price.md. Read-only display. */
 export function Rating({
   value,
   count,

@@ -2,7 +2,7 @@
 
 **Source:** [`components/ReservationDialog.tsx`](../components/ReservationDialog.tsx), [`components/ReservationForm.tsx`](../components/ReservationForm.tsx) · Client Components, with a Server Action
 
-A "Reserve a table" button that opens a modal form for name, party size, date and time. It appears in the header (`size="sm"`), in the homepage hero and in the events section.
+A "Reserve a table" button that opens a modal form for name, party size, date and time. It appears in the header (`variant="outline"`, `size="md"`; see [site-header.md](site-header.md)), in the homepage hero and in the events section.
 
 ## ReservationDialog
 
@@ -29,7 +29,7 @@ A "Reserve a table" button that opens a modal form for name, party size, date an
 | Time | select of 30-minute slots for the chosen weekday | Inside opening hours, last slot 1 hour before close. Today's slots start 30 minutes from now |
 
 - All fields are controlled, so values survive a failed submission (React 19 resets uncontrolled forms after an action).
-- Inputs are 44px pills on `roast-800/70` with `[color-scheme:dark]`, so the native date picker is dark too.
+- Inputs are 44px pills on `roast-800/70` with a `foam-50/40` border and `[color-scheme:dark]`, so the native date picker is dark too. The border measures 3.1–3.8:1 against the panel, which meets WCAG 1.4.11. Don't drop it to `/30`, which measures 2.3–2.7:1 and fails.
 - A field's error replaces its hint, in `danger`, linked with `aria-describedby`. The field also gets `aria-invalid` and `border-danger`.
 - The `role="status"` line under the button reads "We hold tables for 15 minutes after the booked time." until there's an error to report.
 

@@ -25,7 +25,7 @@ The Server Action **must** validate the email on the server. The input sets `noV
 ## Visual
 
 - The panel is `rounded-panel` (24px) with an `espresso-600` border, `bg-(image:--bg-panel)` and `shadow-card`, padded 56px vertically.
-- The input is a 44px pill on `roast-800/70` with a `foam-50/30` border and a `steam-500` placeholder.
+- The input is a 44px pill on `roast-800/70` with a `foam-50/40` border (at least 3:1 against the panel, per WCAG 1.4.11) and a `steam-500` placeholder. Focus uses the global `:focus-visible` outline; don't override it on the input.
 - The button is `primary` at `md` size.
 - Below `sm`, the input and button stack at full width.
 

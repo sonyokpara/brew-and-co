@@ -9,7 +9,7 @@ export type Partner = {
 };
 
 /**
- * PartnerStrip — "Featured roasters" logo row. See specs/partner-strip.md
+ * PartnerStrip — "Featured roasters" logo row. See specs/feature-stat-partner.md
  * Logos are dimmed and desaturated to sit on the dark ground, and come to
  * full strength on hover/focus. Only show partners you have rights to show.
  */
@@ -23,13 +23,13 @@ export function PartnerStrip({ partners }: { partners: Partner[] }) {
             alt={p.name}
             width={p.width}
             height={p.height}
-            className="h-12 w-auto opacity-75 grayscale transition duration-240 group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0"
+            className="h-12 w-auto opacity-75 grayscale transition duration-240 ease-settle group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0"
           />
         );
         return (
           <li key={p.name}>
             {p.href ? (
-              <a href={p.href} rel="noopener noreferrer" className="group block rounded-sm">
+              <a href={p.href} rel="noopener noreferrer" className="group block rounded-tag">
                 {img}
               </a>
             ) : (

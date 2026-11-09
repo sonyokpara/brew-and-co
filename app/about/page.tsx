@@ -85,11 +85,11 @@ export default function AboutPage() {
           <div className="grid gap-10 md:grid-cols-2">
             {founders.map((f) => (
               <figure key={f.name} className="grid gap-6 sm:grid-cols-[12rem_1fr] sm:items-start">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-card border border-espresso-600">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-card border border-espresso-600 shadow-card">
                   <Image src={f.image} alt={f.alt} fill sizes="(min-width: 640px) 12rem, 100vw" className="object-cover" />
                 </div>
                 <figcaption>
-                  <h3 className="text-title font-bold text-foam-50">{f.name}</h3>
+                  <h3 className="text-title font-bold text-balance text-foam-50">{f.name}</h3>
                   <p className="mt-1 text-caption font-medium text-foam-100">{f.role}</p>
                   <p className="mt-4 text-body text-steam-300">{f.bio}</p>
                 </figcaption>
@@ -116,7 +116,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 lg:order-1">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-card border border-espresso-600">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-card border border-espresso-600 shadow-card">
               <Image
                 src="/images/about/cocoa.jpg"
                 alt="Freshly opened cocoa pods showing the beans inside"
@@ -125,7 +125,7 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-            <div className="relative mt-10 aspect-[4/5] overflow-hidden rounded-card border border-espresso-600">
+            <div className="relative mt-10 aspect-[4/5] overflow-hidden rounded-card border border-espresso-600 shadow-card">
               <Image
                 src="/images/about/roasting.jpg"
                 alt="Freshly roasted coffee beans turning in a roaster's cooling tray"
@@ -164,9 +164,8 @@ export default function AboutPage() {
             id="visit-cta"
             title="Come and say hello"
             description="Ama will be on the bar and Yaw will probably have flour on his shirt."
-            align="center"
           />
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-start gap-3">
             <ReservationDialog
               reserve={reserveTable}
               options={reservationOptions}

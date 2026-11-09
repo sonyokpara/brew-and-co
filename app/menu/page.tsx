@@ -70,9 +70,14 @@ export default async function MenuPage() {
           ))}
         </div>
 
-        <div className="mt-section-sm flex flex-col items-start gap-4 rounded-card border border-espresso-600 bg-(image:--bg-card) p-6 shadow-card sm:flex-row sm:items-center sm:justify-between sm:p-8 md:mt-section">
+        <section
+          aria-labelledby="reserve-cta"
+          className="mt-section-sm flex flex-col items-start gap-4 rounded-panel border border-espresso-600 bg-(image:--bg-panel) p-6 shadow-card sm:flex-row sm:items-center sm:justify-between sm:p-8 md:mt-section"
+        >
           <div>
-            <h2 className="text-title font-bold text-foam-50">Staying for a while?</h2>
+            <h2 id="reserve-cta" className="text-title font-bold text-balance text-foam-50">
+              Staying for a while?
+            </h2>
             <p className="mt-1 text-body text-steam-300">
               Reserve a table and we&apos;ll have it ready when you arrive.
             </p>
@@ -83,7 +88,7 @@ export default async function MenuPage() {
             timeZone={site.timeZone}
             bookingWindowDays={site.bookingWindowDays}
           />
-        </div>
+        </section>
       </Container>
     </>
   );

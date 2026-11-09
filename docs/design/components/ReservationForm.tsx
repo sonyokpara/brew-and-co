@@ -87,7 +87,7 @@ export function ReservationForm({
     cn(
       "h-11 w-full rounded-full border bg-roast-800/70 px-5 text-body text-foam-50 [color-scheme:dark]",
       "placeholder:text-steam-500 disabled:opacity-45",
-      errors[f] ? "border-danger" : "border-foam-50/30",
+      errors[f] ? "border-danger" : "border-foam-50/40",
     );
 
   const field = (f: ReservationField, label: string, control: ReactNode, hint?: string) => (

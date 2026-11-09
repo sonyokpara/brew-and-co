@@ -20,7 +20,7 @@ coffee…       Mon–Thu  7am–10pm     About us
 | Prop | Type | Notes |
 |---|---|---|
 | `tagline` | `string` | Up to about 10 words, `max-w-[14rem]` |
-| `columns` | `{ title, links: { label, href }[] }[]` | Two or three columns. Each is a `<nav aria-label={title}>` |
+| `columns` | `{ title, links: { label, href }[] }[]` | Link columns, each a `<nav aria-label={title}>`. The footer should show two or three content columns besides the brand column, and the `visit` column counts toward that total, so `visit` plus one link column (as Brew & Co. uses) is fine |
 | `social` | `{ label, href, icon }[]` | Ghost icon links with `aria-label` ("Brew & Co. on Instagram") |
 | `visit` | `{ address: string[]; hours: { days, hours }[]; mapHref? }?` | Optional "Visit us" column. Address renders in `<address>`, hours as a `<dl>` with `tabular-nums`, and `mapHref` adds a "Get directions" link |
 | `copyright` | `string` | Passed in, not computed. With `cacheComponents: true`, calling `new Date()` while rendering forces dynamic rendering |

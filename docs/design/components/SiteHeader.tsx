@@ -98,7 +98,7 @@ export function SiteHeader({
         hidden={!open}
         className="border-t border-roast-700/60 md:hidden"
       >
-        <ul className="flex flex-col px-gutter py-2">
+        <ul className="flex flex-col px-gutter py-2 sm:px-6">
           {items.map((item) => (
             <li key={item.href}>
               <Link

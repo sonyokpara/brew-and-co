@@ -58,8 +58,7 @@ export function NewsletterPanel({
           aria-describedby={msgId}
           className={cn(
             "h-11 flex-1 rounded-full border bg-roast-800/70 px-5 text-body text-foam-50 placeholder:text-steam-500",
-            "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-crema-400",
-            hasError ? "border-danger" : "border-foam-50/30",
+            hasError ? "border-danger" : "border-foam-50/40",
           )}
         />
         <button type="submit" disabled={pending} className={buttonClasses({ variant: "primary" })}>

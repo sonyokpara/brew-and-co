@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { cn } from "./cn";
 
 /**
- * FeatureItem — icon + title + body. See specs/feature-item.md
+ * FeatureItem — icon + title + body. See specs/feature-stat-partner.md
  * `row` = the "Only quality coffee beans" list; `stacked` = centered value props.
  */
 export function FeatureItem({
@@ -33,7 +33,7 @@ export function FeatureItem({
         {icon}
       </span>
       <div className={cn(stacked && "max-w-[16rem]")}>
-        <H className="text-title-sm font-bold text-foam-50">{title}</H>
+        <H className="text-title-sm font-bold text-balance text-foam-50">{title}</H>
         <div className="mt-2 text-caption text-steam-300">{children}</div>
       </div>
     </div>

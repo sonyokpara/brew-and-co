@@ -52,7 +52,7 @@ export function ProductCard({
       </div>
 
       <div className="flex flex-1 flex-col gap-3 px-5 pt-3 pb-5">
-        <h3 id={headingId} className="text-title-sm leading-tight font-bold text-foam-50">
+        <h3 id={headingId} className="text-title-sm font-bold text-balance text-foam-50">
           {/* Stretched link: the whole card is clickable; the cart button sits above it. */}
           <Link href={href} className="after:absolute after:inset-0 focus-visible:outline-none">
             {name}

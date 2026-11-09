@@ -57,6 +57,7 @@ Tailwind v4 finds class names in `docs/` automatically. I checked that every tok
 | `MenuCategoryNav` | Client | [menu-category-nav.md](specs/menu-category-nav.md) |
 | `EventCard` | Server | [event-card.md](specs/event-card.md) |
 | `ReservationDialog` / `ReservationForm` | Client + Server Action | [reservation.md](specs/reservation.md) |
+| `Icons.*` | Server | [style-guide.md#iconography](style-guide.md#iconography) |
 
 ## Where the site's content lives
 
@@ -70,7 +71,6 @@ The design system is content-agnostic. Brew & Co.'s own content lives outside `d
 | `lib/site.ts` | Address, phone, opening hours, booking rules, nav |
 | `lib/reservations.ts`, `app/actions/reserve.ts` | Reservation validation and the storage stub |
 | `public/images/` | Pexels photos, credited in `public/images/CREDITS.md` |
-| `Icons.*` | Server | [style-guide.md#iconography](style-guide.md#iconography) |
 
 ## How the reference maps to components
 
@@ -96,5 +96,5 @@ The design system is content-agnostic. Brew & Co.'s own content lives outside `d
 - **Stay on tokens.** If you find yourself writing a hex value or an arbitrary `text-[17px]`, add a token to both `tokens.css` and `tokens.json` instead.
 - **Default to Server Components.** Add `"use client"` only for state, effects or browser APIs, as in the header menu, carousel, pulse divider and newsletter form.
 - **Mutations go through Server Actions**, passed in as props (`addToCart`, `subscribe`), so components don't depend on a particular data layer.
-- **Images** use `next/image` with `sizes`. Use `preload` (not the deprecated `priority`) only on the hero image.
+- **Images** use `next/image` with `sizes`. Images rendered at a fixed `width` and `height` (avatars, partner logos, the PulseDivider cup) are exempt; see [style-guide.md#imagery](style-guide.md#imagery). Use `preload` (not the deprecated `priority`) only on the hero image.
 - **Don't call `new Date()` while rendering.** With `cacheComponents`, it makes a route dynamic, so pass dates in as props.

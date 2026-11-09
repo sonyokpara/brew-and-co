@@ -25,7 +25,7 @@ export function PageHeader({
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_90%_at_15%_0%,var(--color-roast-600)_0%,transparent_70%)] opacity-60"
       />
-      <Container className="relative py-16 md:py-24">
+      <Container className="relative py-section-sm md:py-section">
         {kicker && <p className="mb-3 text-caption font-medium text-crema-500">{kicker}</p>}
         <h1 className="max-w-3xl font-display text-display font-extrabold text-balance text-foam-50 md:text-display-lg">
           {title}

@@ -30,7 +30,7 @@ export function MenuItemRow({
       </div>
       <div className="min-w-0 py-1">
         <div className="flex items-baseline gap-3">
-          <h3 className="text-title-sm font-bold text-foam-50">{name}</h3>
+          <h3 className="text-title-sm font-bold text-balance text-foam-50">{name}</h3>
           <span aria-hidden className="mb-1.5 min-w-6 flex-1 border-b-2 border-dotted border-steam-500/50" />
           <p className="shrink-0 text-title-sm font-bold text-crema-500 tabular-nums">
             {formatPrice(price, currency)}
@@ -38,9 +38,11 @@ export function MenuItemRow({
         </div>
         <p className="mt-1 max-w-prose text-caption text-steam-300">{description}</p>
         {badge && (
-          <Badge tone={menuBadgeTone(badge)} className="mt-3">
-            {badge}
-          </Badge>
+          <ul aria-label="Tags" className="mt-3 flex">
+            <li>
+              <Badge tone={menuBadgeTone(badge)}>{badge}</Badge>
+            </li>
+          </ul>
         )}
       </div>
     </li>

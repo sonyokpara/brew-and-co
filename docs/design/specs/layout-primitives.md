@@ -10,6 +10,15 @@ The 1200px column (`max-w-site`) with side gutters of 16, 24 and 32px at `base`,
 
 Sets vertical rhythm: `py-section-sm` (64px) below `md`, `py-section` (96px) above. `tone="alt"` switches to a `roast-900` background for a quiet change between adjacent sections. Always pass `aria-labelledby` pointing at the heading id.
 
+### Consecutive subsections (the Menu page pattern)
+
+Some pages are one long run of sibling subsections on a single surface, like the Menu page's categories. Wrapping each one in `<Section>` would stack two section paddings between them (128–192px). Instead:
+
+- One `<Container className="py-section-sm md:py-section">` holds the whole run.
+- Inside it, a `flex flex-col gap-section-sm md:gap-section` wrapper keeps the same 64/96px rhythm *between* subsections.
+- Each subsection is a plain `<section id={…} aria-labelledby={…}>` with a `SectionHeading` (here with `border-b border-roast-700 pb-6` to rule off the category) and a `scroll-mt-36` when it's an in-page target.
+- A closing panel after the run (the Menu page's "Staying for a while?") is also a `<section aria-labelledby>`, spaced with `mt-section-sm md:mt-section`. It's a full-width panel, so it uses `rounded-panel` and `bg-(image:--bg-panel)`.
+
 ```tsx
 <Section aria-labelledby="special">
   <Container>

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "./cn";
 
-/** SectionHeading — see specs/section-heading.md */
+/** SectionHeading — see specs/layout-primitives.md */
 export function SectionHeading({
   id,
   title,

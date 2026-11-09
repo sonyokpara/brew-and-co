@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "./cn";
 
-/** Badge — see specs/badge.md. Sentence case, never all caps. */
+/** Badge — see specs/badge-rating-price.md. Sentence case, never all caps. */
 export function Badge({
   children,
   tone = "outline",

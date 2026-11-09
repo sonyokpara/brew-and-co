@@ -36,7 +36,7 @@ export function MerchCard({
         </div>
       </div>
       <div>
-        <h3 className="text-body font-semibold text-foam-50 group-hover:text-crema-300">
+        <h3 className="text-body font-semibold text-balance text-foam-50 group-hover:text-crema-300">
           <Link href={href} className="after:absolute after:inset-0 focus-visible:outline-none">
             {name}
           </Link>

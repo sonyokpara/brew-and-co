@@ -42,12 +42,14 @@ export function MenuItemCard({
       </div>
       <div className="flex flex-1 flex-col gap-2 px-5 pt-3 pb-5">
         {badge && (
-          <Badge tone={menuBadgeTone(badge)} className="self-start">
-            {badge}
-          </Badge>
+          <ul aria-label="Tags" className="flex">
+            <li>
+              <Badge tone={menuBadgeTone(badge)}>{badge}</Badge>
+            </li>
+          </ul>
         )}
         <div className="flex items-baseline justify-between gap-4">
-          <h3 className="text-title-sm font-bold text-foam-50">{name}</h3>
+          <h3 className="text-title-sm font-bold text-balance text-foam-50">{name}</h3>
           <p className="shrink-0 text-title-sm font-bold text-crema-500 tabular-nums">
             {formatPrice(price, currency)}
           </p>

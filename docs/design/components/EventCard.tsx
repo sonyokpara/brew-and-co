@@ -51,7 +51,7 @@ export function EventCard({
           <span className="text-micro text-steam-300">{part({ month: "short" })}</span>
         </time>
         <div className="min-w-0">
-          <h3 className="text-title-sm font-bold text-foam-50">{title}</h3>
+          <h3 className="text-title-sm font-bold text-balance text-foam-50">{title}</h3>
           <p className="mt-1 flex items-center gap-1.5 text-caption text-steam-300">
             <Clock size={16} />
             <span>

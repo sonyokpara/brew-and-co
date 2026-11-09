@@ -22,14 +22,15 @@
 | `items` | `{ label, href }[]` | Five items at most. Brew & Co. uses Home, Menu, About |
 | `search` | `boolean` | Shows the search icon button. Off by default |
 | `cart` | `{ count }?` | Shows the cart link, with a crema count bubble when above 0. Leave it out for sites without a shop |
-| `cta` | `ReactNode?` | The header's one primary action, e.g. `<ReservationDialog size="sm" />`. Visible at every width |
+| `cta` | `ReactNode?` | The header's main action, e.g. `<ReservationDialog variant="outline" size="md" />`. Visible at every width |
 | `account` | `ReactNode?` | Avatar or "Sign in" link; hidden below `sm` |
 
 ### Visual
 
 - Sticky, `bg-roast-950/85` with `backdrop-blur-md` and a `roast-700/60` bottom border, so content scrolls under it softly.
 - Nav links are `text-caption` medium in `foam-100`. Hover turns them `crema-300`. The current page gets `aria-current="page"` and turns `crema-500`. Don't add an underline; color alone marks the current page, and `aria-current` covers it for screen readers.
-- Utility icons are ghost `IconButton`s (40px). The `cta` slot holds the only crema button in the header.
+- Utility icons are ghost `IconButton`s (40px).
+- The `cta` is an **outline** button at **`md`** (44px). It's outline rather than primary because the header stays on screen above every page's own primary action (the homepage hero's "Reserve a table", for one), and [button.md](button.md) allows one primary per viewport. It's `md` rather than `sm` because the style guide requires 44px for primary actions. At 360px the logo, the `md` button and the menu toggle fit in the row without overflow. The header has no crema button.
 
 ### Responsive
 

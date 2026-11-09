@@ -38,7 +38,7 @@ export function SiteFooter({
 
         {visit && (
           <div>
-            <h2 className="text-caption font-semibold text-crema-500">Visit us</h2>
+            <h2 className="text-caption font-semibold text-balance text-crema-500">Visit us</h2>
             <address className="mt-4 text-caption text-steam-300 not-italic">
               {visit.address.map((line) => (
                 <span key={line} className="block">
@@ -69,7 +69,7 @@ export function SiteFooter({
 
         {columns.map((col) => (
           <nav key={col.title} aria-label={col.title}>
-            <h2 className="text-caption font-semibold text-crema-500">{col.title}</h2>
+            <h2 className="text-caption font-semibold text-balance text-crema-500">{col.title}</h2>
             <ul className="mt-4 flex flex-col gap-3">
               {col.links.map((l) => (
                 <li key={l.href}>
@@ -83,7 +83,7 @@ export function SiteFooter({
         ))}
 
         <div>
-          <h2 className="text-caption font-semibold text-crema-500">Follow us</h2>
+          <h2 className="text-caption font-semibold text-balance text-crema-500">Follow us</h2>
           <ul className="mt-4 flex gap-2 lg:flex-col">
             {social.map((s) => (
               <li key={s.href}>

@@ -26,7 +26,7 @@ export function BlogCard({
   }).format(new Date(date));
 
   return (
-    <article className="group relative flex flex-col rounded-card border border-roast-700 bg-roast-900 p-2 transition-colors duration-240 focus-within:border-crema-500 hover:border-espresso-600">
+    <article className="group relative flex flex-col rounded-card border border-roast-700 bg-roast-900 p-2 transition-colors duration-240 ease-settle focus-within:border-crema-500 hover:border-espresso-600">
       <div className="relative aspect-[16/10] overflow-hidden rounded-tile">
         <Image
           src={image.src}
@@ -49,7 +49,7 @@ export function BlogCard({
         <p className="line-clamp-3 text-caption text-steam-300">{excerpt}</p>
         <span
           aria-hidden
-          className="mt-auto inline-flex items-center gap-1.5 pt-3 text-caption font-semibold text-crema-500 group-hover:text-crema-300"
+          className="mt-auto inline-flex items-center gap-1.5 pt-3 text-caption font-semibold text-crema-500 transition-colors duration-150 ease-settle group-hover:text-crema-300"
         >
           Read article <ArrowRight size={14} />
         </span>

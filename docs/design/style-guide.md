@@ -30,10 +30,12 @@ When a choice is unclear, ask whether it makes the room darker, the furniture wa
 | `steam-500` | `#8c857b` | Meta text, placeholders |
 | `ink` | `#1a0f05` | Text on crema |
 | `paper` | `#ffffff` | Merch photo frames only |
+| `danger` | `#f2685c` | Form error text and the error border on inputs |
+| `success` | `#7cc47f` | Form success messages |
 
 ### Rules
 
-1. **Crema stays under about 5% of any screen.** It marks prices, the main call to action, the current page and ratings. A crema heading is allowed in one place only: the ruled heading of the testimonials section.
+1. **Crema stays under about 5% of any screen.** It marks prices, the main call to action, the current page and ratings. It may also color a sentence-case `kicker` above a heading (`SectionHeading`, `PageHeader`), but only when the kicker adds meaning. A crema heading is allowed in one place only: the ruled heading of the testimonials section.
 2. **Text on crema is `ink`, not white.** The reference uses white on orange, which measures about 2.3:1 and fails WCAG AA. `ink` on `crema-500` measures 8.0:1. This is the most important departure from the reference.
 3. **Never put espresso on espresso without a border.** Cards always carry `border-espresso-600` so they read as separate objects on the dark ground.
 4. **No grey shadows.** Depth comes from the espresso gradient, a 1px inner highlight (`shadow-card`) and, on focus or hover, a crema halo (`shadow-glow`).
@@ -50,6 +52,10 @@ When a choice is unclear, ask whether it makes the room darker, the furniture wa
 | `steam-300` on `espresso-700` | 7.4:1 | AAA |
 | `crema-500` on `espresso-700` | 6.0:1 | AA |
 | `steam-500` on `roast-900` | 5.1:1 | AA |
+| `danger` on `espresso-700` | 4.65:1 | AA (narrowly; keep it off lighter surfaces) |
+| `danger` on `espresso-900` | 6.1:1 | AA |
+| `success` on `espresso-700` | 6.8:1 | AA |
+| Input border `foam-50/40` on `--bg-panel` (non-text, 3:1 needed) | 3.1–3.8:1 | AA (1.4.11). `foam-50/30` measures 2.3–2.7:1 and fails |
 
 ## Typography
 
@@ -87,7 +93,7 @@ The scale follows Bringhurst's classical progression (12, 14, 16, 18, 21, 24, 30
 - **Content column:** `max-w-site` (1200px), centered, with gutters of 16px on mobile, 24px from `sm` and 32px from `lg` (`<Container>`).
 - **Vertical rhythm:** `py-section-sm` (64px) below `md` and `py-section` (96px) above it, set by `<Section>`.
 - **Grid:** 12 columns are implied but not enforced. Product cards run 1 → 2 → 3 columns, merch tiles 2 → 4, features 1 → 2 → 4.
-- **Alignment:** left-aligned by default. Center only when a section is a single statement: the stats band, the "Crafted with care" value props, testimonials and the newsletter panel.
+- **Alignment:** left-aligned by default. Center only when a section is a single statement: the stats band, the "Crafted with care" value props, testimonials and the newsletter panel. Closing call-to-action sections on inner pages (a heading, one line and the buttons, like About's "Come and say hello") stay left-aligned.
 - **Breakpoints:** Tailwind defaults (`sm` 640, `md` 768, `lg` 1024, `xl` 1280).
 
 ```
@@ -129,13 +135,15 @@ Corner radius follows hierarchy, so it isn't the same everywhere:
 
 Inner radii are always smaller than outer ones. A photo inset 8px inside a 16px card gets the 10px tile radius.
 
+**Standalone photos** (editorial images that sit directly in a section rather than inside a card, like the About page's interior, founder and cocoa photos) are framed like cards: `rounded-card`, `border border-espresso-600` and `shadow-card`, with `overflow-hidden` on the frame.
+
 ## Imagery
 
 - **Overhead or three-quarter shots on dark ground, lit from one side.** Backgrounds should fall off to near-black so photos blend into `roast-950` without a visible box.
 - **Hero art** is a single cut-out cup, square and centered, with room above it for the steam.
 - **Product photos** are 4:3 and include a prop (flower, beans, saucer) for scale and warmth.
 - **Merch photos** are bright product shots. They sit in white `paper` frames on purpose: the contrast says "this is a thing you can buy" rather than "this is the café".
-- Always use `next/image` with `sizes`. Only the hero image gets `preload`. Next 16 deprecated `priority`, so don't use it.
+- Always use `next/image` with `sizes` for responsive images (`fill`, or anything whose rendered width changes with the viewport). Images rendered at a fixed `width` and `height`, such as avatars, partner logos and the PulseDivider cup, are exempt, because Next already serves them at 1× and 2×. Only the hero image gets `preload`. Next 16 deprecated `priority`, so don't use it.
 - Alt text describes the drink, not the photo ("Salted caramel latte with a red rose", not "image of coffee").
 
 ## Iconography
@@ -179,7 +187,7 @@ Write like a good barista talks: warm, short and specific. Name the drink, the o
 
 - WCAG 2.2 AA at minimum. See the contrast table above.
 - Focus shows as a 2px `crema-400` outline with a 3px offset, set globally on `:focus-visible`. Cards also gain the `shadow-glow` halo while anything inside them has focus.
-- Primary controls are at least 44px tall (`h-11`). Icon buttons are 40px with an 8px gap between them, which exceeds the 24px minimum.
+- Primary controls are at least 44px tall (`h-11`). That includes the header's "Reserve a table" button, which uses `size="md"` rather than `sm`; it fits beside the logo and menu toggle at 360px. Icon buttons are 40px with an 8px gap between them, which exceeds the 24px minimum.
 - Each section has an `aria-labelledby` that points at its heading. Each card is an `<article>` with one stretched link, and secondary actions (the cart button) are raised above that link with `z-10`.
 - Ratings expose a single readable label ("Rated 4.5 out of 5 from 350 reviews").
 - The carousel is a scrollable, focusable list with real buttons for its dots. It never autoplays.

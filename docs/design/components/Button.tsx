@@ -21,7 +21,7 @@ const variants: Record<Variant, string> = {
   outline:
     "rounded-full border border-foam-50/40 text-foam-50 hover:border-crema-400 hover:text-crema-300 active:bg-foam-50/5",
   link:
-    "rounded-sm text-foam-50 underline-offset-4 decoration-crema-500 hover:text-crema-300 hover:underline",
+    "rounded-tag text-foam-50 underline-offset-4 decoration-crema-500 hover:text-crema-300 hover:underline",
 };
 
 const sizes: Record<Size, string> = {

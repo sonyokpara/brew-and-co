@@ -1,5 +1,5 @@
 /**
- * StatBand — full-bleed navy band of 3–4 figures. See specs/stat-band.md
+ * StatBand — full-bleed navy band of 3–4 figures. See specs/feature-stat-partner.md
  * Values must be real counts; never invent them.
  */
 export function StatBand({

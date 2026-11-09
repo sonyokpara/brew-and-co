@@ -81,7 +81,7 @@ export default async function Home() {
           <SectionHeading
             id="events-title"
             title="What's on"
-            description="Open mic every Friday evening and a coffee tasting every Saturday morning. Both are free. Reserve a table to be sure of a seat."
+            description="Free open mic every Friday evening, and a coffee tasting every Saturday morning that's free with any drink. Reserve a table to be sure of a seat."
           />
           <div className="grid gap-6 lg:grid-cols-2">
             {events.map((e) => (
@@ -123,7 +123,7 @@ export default async function Home() {
           </div>
 
           <div className="rounded-card border border-espresso-600 bg-(image:--bg-card) p-6 shadow-card sm:p-8">
-            <h3 className="text-title font-bold text-foam-50">Visit us</h3>
+            <h3 className="text-title font-bold text-balance text-foam-50">Visit us</h3>
             <address className="mt-4 text-body text-steam-300 not-italic">
               {site.address.map((line) => (
                 <span key={line} className="block">
@@ -134,7 +134,7 @@ export default async function Home() {
                 {site.phone.display}
               </a>
             </address>
-            <h4 className="mt-6 text-caption font-semibold text-foam-50">Opening hours</h4>
+            <h4 className="mt-6 text-caption font-semibold text-balance text-foam-50">Opening hours</h4>
             <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-body">
               {openingHoursDisplay.map((h) => (
                 <div key={h.days} className="contents">

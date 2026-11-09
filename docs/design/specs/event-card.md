@@ -30,7 +30,7 @@ Below `sm` the photo sits on top at 16:9.
 
 ## Date block
 
-A `<time dateTime={start}>` in a 64px-wide `espresso-800` tile with an `espresso-600` border. The weekday and month are `text-micro` `steam-300`, and the day is `text-heading` bold foam. It isn't crema, because a date isn't an action or a price.
+A `<time dateTime={start}>` in a 64px-wide `espresso-800` tile with an `espresso-600` border. The weekday and month are `text-micro` `steam-300`, and the day is `text-heading` bold foam with `tabular-nums`. The day deliberately overrides the token line height with `leading-none`, so the three lines stack tightly inside the tile. This is the one sanctioned line-height override. It isn't crema, because a date isn't an action or a price.
 
 Times are formatted with `Intl` in the given zone, dropping ":00" on the hour ("7–10pm"). Dates arrive as props, so the card never reads the clock during render.
 

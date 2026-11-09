@@ -34,7 +34,7 @@ export const recurringEvents: RecurringEvent[] = [
     start: "19:00",
     end: "22:00",
     image: "/images/home/open-mic.jpg",
-    imageAlt: "A singer with a guitar performing on a small, warmly lit stage",
+    imageAlt: "A singer playing an acoustic guitar under a spotlight on a small stage",
   },
   {
     id: "coffee-tasting",
@@ -45,7 +45,7 @@ export const recurringEvents: RecurringEvent[] = [
     start: "09:00",
     end: "11:00",
     image: "/images/home/coffee-tasting.jpg",
-    imageAlt: "A row of small cups of coffee laid out for a tasting",
+    imageAlt: "Cupping bowls of ground coffee and tasting spoons set out on a wooden table",
   },
 ];
 

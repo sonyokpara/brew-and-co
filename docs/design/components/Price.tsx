@@ -4,6 +4,7 @@ import { cn } from "./cn";
 export function formatPrice(amount: number, currency = "USD") {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
+    currencyDisplay: "narrowSymbol", // GH₵30 rather than "GHS 30"; $15 stays $15
     currency,
     minimumFractionDigits: Number.isInteger(amount) ? 0 : 2,
   }).format(amount);

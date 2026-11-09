@@ -40,6 +40,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
               timeZone={site.timeZone}
               bookingWindowDays={site.bookingWindowDays}
               size="sm"
+              variant="outline"
             />
           }
         />

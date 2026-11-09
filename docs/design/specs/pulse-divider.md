@@ -1,6 +1,6 @@
 # PulseDivider (the signature)
 
-**Source:** [`components/pulse-divider.tsx`](../components/pulse-divider.tsx) · Client Component
+**Source:** [`components/PulseDivider.tsx`](../components/PulseDivider.tsx) · Client Component
 
 A steaming cup sits on a flat white line that kicks into two heartbeats, then runs flat to the edge of the page. It's the one memorable, unexpected image in the reference: coffee as the thing that keeps your day alive. The system makes it its signature.
 

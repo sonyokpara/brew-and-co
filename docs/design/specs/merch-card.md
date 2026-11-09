@@ -1,6 +1,6 @@
 # MerchCard
 
-**Source:** [`components/merch-card.tsx`](../components/merch-card.tsx) · Server Component
+**Source:** [`components/MerchCard.tsx`](../components/MerchCard.tsx) · Server Component
 
 The "Featured products" tile for beans, mugs, brewers and gift sets. It's deliberately quieter than `ProductCard`: a white photo frame with plain text underneath and no card body.
 

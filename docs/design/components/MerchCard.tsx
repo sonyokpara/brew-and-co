@@ -1,6 +1,6 @@
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
-import { Price } from "./price";
+import { Price } from "./Price";
 
 /**
  * MerchCard — the "Featured products" tile: a white photo frame on the dark

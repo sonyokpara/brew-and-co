@@ -4,7 +4,7 @@ Supporting content blocks. All are Server Components.
 
 ## FeatureItem
 
-**Source:** [`components/feature-item.tsx`](../components/feature-item.tsx)
+**Source:** [`components/FeatureItem.tsx`](../components/FeatureItem.tsx)
 
 An icon, a title and a short body.
 
@@ -25,7 +25,7 @@ Keep body copy to about 40 words in a row and about 15 in a stack. Suggested cof
 
 ## StatBand
 
-**Source:** [`components/stat-band.tsx`](../components/stat-band.tsx)
+**Source:** [`components/StatBand.tsx`](../components/StatBand.tsx)
 
 A full-bleed band with a navy gradient (`--bg-stats`) and `roast-600` hairlines above and below, holding a `<dl>` of 3–4 figures.
 
@@ -35,7 +35,7 @@ A full-bleed band with a navy gradient (`--bg-stats`) and `roast-600` hairlines 
 
 ## PartnerStrip
 
-**Source:** [`components/partner-strip.tsx`](../components/partner-strip.tsx)
+**Source:** [`components/PartnerStrip.tsx`](../components/PartnerStrip.tsx)
 
 The "Featured roasters" logo row. Logos are 48px tall, shown at 75% opacity in grayscale, and return to full color on hover or focus.
 

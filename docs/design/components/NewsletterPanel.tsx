@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useId } from "react";
-import { buttonClasses } from "./button";
+import { buttonClasses } from "./Button";
 import { cn } from "./cn";
 
 export type NewsletterState =

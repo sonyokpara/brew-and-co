@@ -1,6 +1,6 @@
 import Image, { type StaticImageData } from "next/image";
 import type { ReactNode } from "react";
-import { Container } from "./container";
+import { Container } from "./Container";
 
 type Img = { src: string | StaticImageData; alt: string };
 

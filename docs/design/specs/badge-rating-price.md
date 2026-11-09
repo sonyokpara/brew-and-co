@@ -4,7 +4,7 @@ The small pieces that sit inside cards. All are Server Components.
 
 ## Badge
 
-**Source:** [`components/badge.tsx`](../components/badge.tsx)
+**Source:** [`components/Badge.tsx`](../components/Badge.tsx)
 
 A 24px-tall label with `rounded-tag` (4px), `text-micro` and medium weight.
 
@@ -19,7 +19,7 @@ A 24px-tall label with `rounded-tag` (4px), `text-micro` and medium weight.
 
 ## Rating
 
-**Source:** [`components/rating.tsx`](../components/rating.tsx)
+**Source:** [`components/Rating.tsx`](../components/Rating.tsx)
 
 Read-only stars with an optional review count.
 
@@ -35,7 +35,7 @@ Read-only stars with an optional review count.
 
 ## Price
 
-**Source:** [`components/price.tsx`](../components/price.tsx)
+**Source:** [`components/Price.tsx`](../components/Price.tsx)
 
 Formats prices with `Intl.NumberFormat`. Whole amounts drop the cents ("$15"), and other amounts show two decimals ("$24.99").
 

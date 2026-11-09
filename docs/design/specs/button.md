@@ -1,6 +1,6 @@
 # Button and IconButton
 
-**Source:** [`components/button.tsx`](../components/button.tsx) · Server Component (no client JS)
+**Source:** [`components/Button.tsx`](../components/Button.tsx), [`components/IconButton.tsx`](../components/IconButton.tsx) · Server Component (no client JS)
 
 ## Button
 

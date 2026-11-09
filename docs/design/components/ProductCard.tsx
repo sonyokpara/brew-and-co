@@ -1,10 +1,10 @@
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
-import { Badge } from "./badge";
-import { IconButton } from "./button";
+import { Badge } from "./Badge";
+import { IconButton } from "./IconButton";
 import { Cart } from "./icons";
-import { Price } from "./price";
-import { Rating } from "./rating";
+import { Price } from "./Price";
+import { Rating } from "./Rating";
 
 export type Product = {
   id: string;

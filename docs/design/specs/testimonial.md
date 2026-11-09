@@ -1,6 +1,6 @@
 # TestimonialCard and TestimonialCarousel
 
-**Source:** [`components/testimonial.tsx`](../components/testimonial.tsx) · Client Component (the carousel syncs its dots to scroll position)
+**Source:** [`components/TestimonialCard.tsx`](../components/TestimonialCard.tsx) (Server Component) and [`components/TestimonialCarousel.tsx`](../components/TestimonialCarousel.tsx) (Client Component: syncs its dots to scroll position)
 
 ## TestimonialCard
 

@@ -11,7 +11,9 @@ docs/design/
 │   ├── tokens.css         ← Tailwind v4 @theme: the source of truth in code
 │   ├── tokens.json        ← the same tokens in W3C DTCG format (Figma / Style Dictionary)
 │   └── fonts.ts           ← next/font setup (Bricolage Grotesque + Yellowtail)
-├── components/            ← typed React components using only token utilities
+├── components/            ← typed React components, one per PascalCase file
+│   ├── Button.tsx …       ← e.g. Button.tsx exports Button
+│   ├── cn.ts, icons.tsx   ← shared helpers (camelCase: not single components)
 │   └── index.ts           ← barrel export
 └── specs/                 ← one spec per component: anatomy, props, states, a11y
 ```
@@ -36,7 +38,7 @@ Tailwind v4 finds class names in `docs/` automatically. I checked that every tok
 
 | Component | Kind | Spec |
 |---|---|---|
-| `Button`, `IconButton`, `buttonClasses` | Server | [button.md](specs/button.md) |
+| `Button` (+ `buttonClasses`), `IconButton` | Server | [button.md](specs/button.md) |
 | `Badge`, `Rating`, `Price` | Server | [badge-rating-price.md](specs/badge-rating-price.md) |
 | `Container`, `Section`, `SectionHeading` | Server | [layout-primitives.md](specs/layout-primitives.md) |
 | `SiteHeader` / `Logo` | Client / Server | [site-header.md](specs/site-header.md) |
@@ -45,7 +47,7 @@ Tailwind v4 finds class names in `docs/` automatically. I checked that every tok
 | `MerchCard` | Server | [merch-card.md](specs/merch-card.md) |
 | `FeatureItem`, `StatBand`, `PartnerStrip` | Server | [feature-stat-partner.md](specs/feature-stat-partner.md) |
 | `BlogCard` | Server | [blog-card.md](specs/blog-card.md) |
-| `TestimonialCard`, `TestimonialCarousel` | Client | [testimonial.md](specs/testimonial.md) |
+| `TestimonialCard` / `TestimonialCarousel` | Server / Client | [testimonial.md](specs/testimonial.md) |
 | `PulseDivider` (signature) | Client | [pulse-divider.md](specs/pulse-divider.md) |
 | `NewsletterPanel` | Client + Server Action | [newsletter-form.md](specs/newsletter-form.md) |
 | `SiteFooter` | Server | [site-footer.md](specs/site-footer.md) |
@@ -71,6 +73,7 @@ Tailwind v4 finds class names in `docs/` automatically. I checked that every tok
 
 ## Conventions
 
+- **Naming:** one component per file. The file is named in PascalCase after the component it exports (`ProductCard.tsx` → `export function ProductCard`), and imports use the same casing (`./ProductCard`). Helpers and collections that aren't a single component (`cn.ts`, `icons.tsx`, `index.ts`) are camelCase.
 - **Stay on tokens.** If you find yourself writing a hex value or an arbitrary `text-[17px]`, add a token to both `tokens.css` and `tokens.json` instead.
 - **Default to Server Components.** Add `"use client"` only for state, effects or browser APIs, as in the header menu, carousel, pulse divider and newsletter form.
 - **Mutations go through Server Actions**, passed in as props (`addToCart`, `subscribe`), so components don't depend on a particular data layer.

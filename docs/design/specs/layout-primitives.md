@@ -1,6 +1,6 @@
 # Container, Section and SectionHeading
 
-**Source:** [`components/container.tsx`](../components/container.tsx), [`components/section-heading.tsx`](../components/section-heading.tsx) · Server Components
+**Source:** [`components/Container.tsx`](../components/Container.tsx), [`components/Section.tsx`](../components/Section.tsx), [`components/SectionHeading.tsx`](../components/SectionHeading.tsx) · Server Components
 
 ## Container
 

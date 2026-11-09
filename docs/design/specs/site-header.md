@@ -1,6 +1,6 @@
 # SiteHeader and Logo
 
-**Source:** [`components/site-header.tsx`](../components/site-header.tsx) (Client Component: uses `usePathname` and keeps menu state) and [`components/logo.tsx`](../components/logo.tsx) (Server Component)
+**Source:** [`components/SiteHeader.tsx`](../components/SiteHeader.tsx) (Client Component: uses `usePathname` and keeps menu state) and [`components/Logo.tsx`](../components/Logo.tsx) (Server Component)
 
 ## Logo
 

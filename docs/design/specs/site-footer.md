@@ -1,6 +1,6 @@
 # SiteFooter
 
-**Source:** [`components/site-footer.tsx`](../components/site-footer.tsx) · Server Component
+**Source:** [`components/SiteFooter.tsx`](../components/SiteFooter.tsx) · Server Component
 
 ## Anatomy
 

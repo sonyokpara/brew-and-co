@@ -1,6 +1,6 @@
 # Hero
 
-**Source:** [`components/hero.tsx`](../components/hero.tsx) · Server Component (motion is CSS-only)
+**Source:** [`components/Hero.tsx`](../components/Hero.tsx) · Server Component (motion is CSS-only)
 
 The first screen: a large headline on the left and a single overhead cup on the right, backlit by a navy glow, with steam rising from it.
 

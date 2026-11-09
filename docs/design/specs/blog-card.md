@@ -1,6 +1,6 @@
 # BlogCard
 
-**Source:** [`components/blog-card.tsx`](../components/blog-card.tsx) · Server Component
+**Source:** [`components/BlogCard.tsx`](../components/BlogCard.tsx) · Server Component
 
 A journal post card, used for the "From the journal" section (the reference's "Our Blog / Be First Hwo Read News").
 

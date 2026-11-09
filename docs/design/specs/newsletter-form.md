@@ -1,6 +1,6 @@
 # NewsletterPanel
 
-**Source:** [`components/newsletter-form.tsx`](../components/newsletter-form.tsx) · Client Component, using `useActionState` with a Server Action
+**Source:** [`components/NewsletterPanel.tsx`](../components/NewsletterPanel.tsx) · Client Component, using `useActionState` with a Server Action
 
 The closing call to action before the footer: a large espresso panel with a radial highlight from above, holding a headline, one line of explanation and an inline email form.
 

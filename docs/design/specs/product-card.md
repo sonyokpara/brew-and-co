@@ -1,6 +1,6 @@
 # ProductCard
 
-**Source:** [`components/product-card.tsx`](../components/product-card.tsx) · Server Component, with a Server Action for add to cart
+**Source:** [`components/ProductCard.tsx`](../components/ProductCard.tsx) · Server Component, with a Server Action for add to cart
 
 The "Our special coffee" card and the richest object in the system. It's a warm espresso card that lights up in crema when touched.
 

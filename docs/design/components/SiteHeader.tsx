@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import { cn } from "./cn";
 import { Cart, Close, Menu, Search } from "./icons";
-import { IconButton } from "./button";
-import { Logo } from "./logo";
+import { IconButton } from "./IconButton";
+import { Logo } from "./Logo";
 
 export type NavItem = { label: string; href: string };
 

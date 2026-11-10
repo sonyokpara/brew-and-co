@@ -2,18 +2,10 @@
 
 import type { ReservationField, ReservationState } from "@/docs/design/components";
 import { saveReservation } from "@/lib/reservations";
+import { shopNow } from "@/lib/shop-time";
 import { bookingSlots, formatTime, site } from "@/lib/site";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
-
-/** Today's date and the current minute in Kumasi (GMT, no daylight saving). */
-function shopNow() {
-  const now = new Date();
-  return {
-    today: now.toISOString().slice(0, 10),
-    minutes: now.getUTCHours() * 60 + now.getUTCMinutes(),
-  };
-}
 
 function addDays(isoDate: string, days: number) {
   const d = new Date(`${isoDate}T00:00:00Z`);

@@ -35,3 +35,9 @@ export {
   type ReservationState,
 } from "./ReservationForm";
 export { ReservationDialog } from "./ReservationDialog";
+export { CartProvider, useCart, type CatalogItem, type CartLine } from "./CartProvider";
+export { AddToCartButton } from "./AddToCartButton";
+export { QuantityStepper } from "./QuantityStepper";
+export { CartDrawer, type OrderField, type OrderOptions, type OrderState } from "./CartDrawer";
+export { SearchDialog, searchMenu } from "./SearchDialog";
+export { HashHighlight, highlightMenuItem } from "./HashHighlight";

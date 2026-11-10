@@ -1,5 +1,6 @@
 import Image from "next/image";
 import {
+  AddToCartButton,
   Button,
   Container,
   EventCard,
@@ -72,6 +73,7 @@ export default async function Home() {
                 currency={site.currency}
                 badge={item.badge}
                 image={{ src: item.image, alt: item.imageAlt }}
+                action={<AddToCartButton slug={item.slug} name={item.name} />}
               />
             ))}
           </div>

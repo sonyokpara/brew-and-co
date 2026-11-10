@@ -2,7 +2,7 @@
 
 **Source:** [`components/MenuItemCard.tsx`](../components/MenuItemCard.tsx) · Server Component
 
-A featured menu item, used in the homepage's "Most loved on the menu" grid. It shares the espresso card surface with `ProductCard` but has no cart, rating or link: Brew & Co. doesn't sell online and menu items have no detail page.
+A featured menu item, used in the homepage's "Most loved on the menu" grid. It shares the espresso card surface with `ProductCard` but has no rating or link, because menu items have no detail page. Pass `action` (an `<AddToCartButton />`, see [cart.md](cart.md)) to let people order it; it sits right-aligned at the foot of the card.
 
 ## Anatomy
 
@@ -32,7 +32,7 @@ A featured menu item, used in the homepage's "Most loved on the menu" grid. It s
 
 ## States
 
-None. The card isn't interactive, so it has no hover or focus treatment; adding one would suggest a click that does nothing.
+Only the action is interactive. The card itself has no hover or focus treatment; adding one would suggest a click that does nothing.
 
 ## Layout
 

@@ -39,6 +39,21 @@ export const Cart = (p: IconProps) => (
     <circle cx="9" cy="20" r="1.25" /><circle cx="17" cy="20" r="1.25" />
   </Base>
 );
+export const Plus = (p: IconProps) => (
+  <Base {...p}><path d="M12 5v14M5 12h14" /></Base>
+);
+export const Minus = (p: IconProps) => (
+  <Base {...p}><path d="M5 12h14" /></Base>
+);
+export const Trash = (p: IconProps) => (
+  <Base {...p}><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3" /></Base>
+);
+export const Check = (p: IconProps) => (
+  <Base {...p}><path d="m5 12 5 5 9-10" /></Base>
+);
+export const ChevronLeft = (p: IconProps) => (
+  <Base {...p}><path d="m15 18-6-6 6-6" /></Base>
+);
 export const Menu = (p: IconProps) => (
   <Base {...p}><path d="M4 7h16M4 12h16M4 17h16" /></Base>
 );

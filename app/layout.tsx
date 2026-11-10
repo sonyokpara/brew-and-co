@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
 import { cacheLife } from "next/cache";
-import { Icons, ReservationDialog, SiteFooter, SiteHeader } from "@/docs/design/components";
+import {
+  CartDrawer,
+  CartProvider,
+  Icons,
+  ReservationDialog,
+  SearchDialog,
+  SiteFooter,
+  SiteHeader,
+  type CatalogItem,
+} from "@/docs/design/components";
 import { bricolage, yellowtail } from "@/docs/design/tokens/fonts";
-import { openingHoursDisplay, reservationOptions, site } from "@/lib/site";
+import { getMenu } from "@/lib/menu";
+import { openingHoursDisplay, orderOptions, reservationOptions, site } from "@/lib/site";
+import { placeOrder } from "./actions/order";
 import { reserveTable } from "./actions/reserve";
 import "./globals.css";
 
@@ -19,65 +30,86 @@ async function currentYear() {
 }
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const year = await currentYear();
+  const [year, menu] = await Promise.all([currentYear(), getMenu()]);
+  const catalog: CatalogItem[] = menu.flatMap((c) =>
+    c.items.map((i) => ({
+      slug: i.slug,
+      name: i.name,
+      category: c.name,
+      description: i.description,
+      price: i.price,
+      image: i.image,
+      imageAlt: i.imageAlt,
+      badge: i.badge,
+      availableUntil: i.availableUntil,
+    })),
+  );
 
   return (
     <html lang="en" className={`${bricolage.variable} ${yellowtail.variable} h-full`}>
       {/* Browser extensions (e.g. Grammarly) add attributes to <body> before hydration. */}
       <body className="flex min-h-full flex-col" suppressHydrationWarning>
-        <a
-          href="#content"
-          className="sr-only z-50 rounded-full bg-crema-500 px-5 py-3 font-semibold text-ink focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
-        >
-          Skip to content
-        </a>
+        <CartProvider catalog={catalog} currency={site.currency} maxQuantity={orderOptions.maxQuantity}>
+          <a
+            href="#content"
+            className="sr-only z-50 rounded-full bg-crema-500 px-5 py-3 font-semibold text-ink focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          >
+            Skip to content
+          </a>
 
-        <SiteHeader
-          items={[...site.nav]}
-          cta={
-            <ReservationDialog
-              reserve={reserveTable}
-              options={reservationOptions}
-              timeZone={site.timeZone}
-              bookingWindowDays={site.bookingWindowDays}
-              size="md"
-              variant="outline"
-            />
-          }
-        />
+          <SiteHeader
+            items={[...site.nav]}
+            utilities={
+              <>
+                <SearchDialog />
+                <CartDrawer placeOrder={placeOrder} options={orderOptions} />
+              </>
+            }
+            cta={
+              <ReservationDialog
+                reserve={reserveTable}
+                options={reservationOptions}
+                timeZone={site.timeZone}
+                bookingWindowDays={site.bookingWindowDays}
+                size="md"
+                variant="outline"
+              />
+            }
+          />
 
-        <main id="content" className="flex-1">
-          {children}
-        </main>
+          <main id="content" className="flex-1">
+            {children}
+          </main>
 
-        <SiteFooter
-          tagline={site.tagline}
-          visit={{ address: [...site.address], hours: openingHoursDisplay, mapHref: site.mapHref }}
-          columns={[
-            {
-              title: "Explore",
-              links: [
-                { label: "Home", href: "/" },
-                { label: "Menu", href: "/menu" },
-                { label: "About us", href: "/about" },
-                { label: "What's on", href: "/#events" },
-              ],
-            },
-          ]}
-          social={[
-            {
-              label: "Brew & Co. on Instagram",
-              href: site.social.instagram,
-              icon: <Icons.Instagram />,
-            },
-            {
-              label: "Brew & Co. on Facebook",
-              href: site.social.facebook,
-              icon: <Icons.Facebook />,
-            },
-          ]}
-          copyright={`© ${year} ${site.name}`}
-        />
+          <SiteFooter
+            tagline={site.tagline}
+            visit={{ address: [...site.address], hours: openingHoursDisplay, mapHref: site.mapHref }}
+            columns={[
+              {
+                title: "Explore",
+                links: [
+                  { label: "Home", href: "/" },
+                  { label: "Menu", href: "/menu" },
+                  { label: "About us", href: "/about" },
+                  { label: "What's on", href: "/#events" },
+                ],
+              },
+            ]}
+            social={[
+              {
+                label: "Brew & Co. on Instagram",
+                href: site.social.instagram,
+                icon: <Icons.Instagram />,
+              },
+              {
+                label: "Brew & Co. on Facebook",
+                href: site.social.facebook,
+                icon: <Icons.Facebook />,
+              },
+            ]}
+            copyright={`© ${year} ${site.name}`}
+          />
+        </CartProvider>
       </body>
     </html>
   );

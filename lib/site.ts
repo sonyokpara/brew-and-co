@@ -82,3 +82,41 @@ export const reservationOptions = {
   maxPartySize: site.maxPartySize,
   phone: site.phone.display,
 };
+
+/* ---------- Order ahead for pickup ---------- */
+
+/** The earliest pickup is this long after the order is placed. */
+export const PICKUP_LEAD_MIN = 15;
+export const PICKUP_SLOT_MIN = 15;
+/** The last pickup slot is this long before closing. */
+export const LAST_PICKUP_BEFORE_CLOSE_MIN = 15;
+/** Most of one item a single online order can hold. */
+export const MAX_ITEM_QUANTITY = 20;
+
+/** Every pickup "HH:MM" slot for a weekday, before today's lead time is applied. */
+export function pickupSlots(weekday: number): string[] {
+  const h = openingHours[weekday];
+  if (!h) return [];
+  const slots: string[] = [];
+  for (let m = h.open; m <= h.close - LAST_PICKUP_BEFORE_CLOSE_MIN; m += PICKUP_SLOT_MIN) {
+    slots.push(`${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`);
+  }
+  return slots;
+}
+
+/** Everything the cart's checkout needs, serializable for Client Components. */
+export const orderOptions = {
+  slotsByWeekday: Object.fromEntries([0, 1, 2, 3, 4, 5, 6].map((d) => [d, pickupSlots(d)])),
+  /** Opening time by weekday, e.g. "7am", for the "closed for today" message. */
+  opensByWeekday: Object.fromEntries(
+    [0, 1, 2, 3, 4, 5, 6].map((d) => {
+      const m = openingHours[d].open;
+      return [d, formatTime(`${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`)];
+    }),
+  ),
+  leadMinutes: PICKUP_LEAD_MIN,
+  maxQuantity: MAX_ITEM_QUANTITY,
+  currency: site.currency,
+  timeZone: site.timeZone,
+  phone: site.phone.display,
+};

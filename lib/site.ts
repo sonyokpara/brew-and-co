@@ -38,17 +38,17 @@ export const site = {
  */
 export const openingHours: Record<number, { open: number; close: number }> = {
   0: { open: 9 * 60, close: 21 * 60 },
-  1: { open: 7 * 60, close: 22 * 60 },
-  2: { open: 7 * 60, close: 22 * 60 },
-  3: { open: 7 * 60, close: 22 * 60 },
-  4: { open: 7 * 60, close: 22 * 60 },
+  1: { open: 7 * 60, close: 21 * 60 },
+  2: { open: 7 * 60, close: 21 * 60 },
+  3: { open: 7 * 60, close: 21 * 60 },
+  4: { open: 7 * 60, close: 21 * 60 },
   5: { open: 7 * 60, close: 24 * 60 },
   6: { open: 7 * 60, close: 24 * 60 },
 };
 
 /** Grouped for display in the footer and on the menu page. */
 export const openingHoursDisplay = [
-  { days: "Mon–Thu", hours: "7am–10pm" },
+  { days: "Mon–Thu", hours: "7am–9pm" },
   { days: "Fri–Sat", hours: "7am–midnight" },
   { days: "Sun", hours: "9am–9pm" },
 ];

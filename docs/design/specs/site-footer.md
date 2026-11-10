@@ -8,7 +8,7 @@
 Brew          Visit us              Explore      Follow us
 & Co.         14 Prempeh II St      Home         ◎
 Specialty     Adum, Kumasi          Menu         ⓕ
-coffee…       Mon–Thu  7am–10pm     About us
+coffee…       Mon–Thu  7am–9pm      About us
               Fri–Sat  7am–midnight What's on
               Get directions
 ────────────────────────────────────────────────────────

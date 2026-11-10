@@ -16,6 +16,8 @@ export type MenuItem = {
   image: string;
   /** Describes the photo; falls back to the item name. */
   imageAlt: string;
+  /** Minutes after midnight when the kitchen stops serving it, if earlier than closing. */
+  availableUntil?: number;
 };
 
 export type MenuCategory = {
@@ -27,13 +29,17 @@ export type MenuCategory = {
 };
 
 /** Display order and the one-line intro shown above each category. */
-const CATEGORIES: { name: string; intro: string }[] = [
+const CATEGORIES: { name: string; intro: string; availableUntil?: number }[] = [
   {
     name: "Espresso drinks",
     intro: "Pulled on our house blend: a washed Ethiopian and Colombian pairing, roasted weekly.",
   },
   { name: "Pastries", intro: "Baked in-house before sunrise. When they're gone, they're gone." },
-  { name: "Sandwiches", intro: "Made to order on bread from our own oven, served until 4pm." },
+  {
+    name: "Sandwiches",
+    intro: "Made to order on bread from our own oven, served until 4pm.",
+    availableUntil: 16 * 60,
+  },
   { name: "Cold drinks", intro: "For Kumasi afternoons. Ask for any espresso drink over ice." },
 ];
 
@@ -97,6 +103,8 @@ async function loadItems(): Promise<MenuItem[]> {
     badge: col("badge"),
     image: col("image"),
     alt: header.indexOf("alt"),
+    /** Optional "HH:MM" when the kitchen stops serving the item, e.g. 11:00 for breakfast. */
+    servedUntil: header.indexOf("served_until"),
   };
 
   return rows.map((r, line) => {
@@ -105,6 +113,10 @@ async function loadItems(): Promise<MenuItem[]> {
       throw new Error(`menu-items.csv row ${line + 2}: price "${r[c.price]}" is not a number`);
     }
     const badge = r[c.badge]?.trim();
+    const until = c.servedUntil >= 0 ? r[c.servedUntil]?.trim() : "";
+    if (until && !/^\d{2}:\d{2}$/.test(until)) {
+      throw new Error(`menu-items.csv row ${line + 2}: served_until "${until}" is not HH:MM`);
+    }
     return {
       category: r[c.category].trim(),
       slug: r[c.slug].trim(),
@@ -114,6 +126,7 @@ async function loadItems(): Promise<MenuItem[]> {
       badge: badge === "Popular" || badge === "House favorite" ? badge : undefined,
       image: `/images/menu/${r[c.image].trim()}`,
       imageAlt: (c.alt >= 0 ? r[c.alt]?.trim() : "") || r[c.name].trim(),
+      availableUntil: until ? Number(until.slice(0, 2)) * 60 + Number(until.slice(3)) : undefined,
     };
   });
 }
@@ -127,12 +140,19 @@ export async function getMenu(): Promise<MenuCategory[]> {
   const known = CATEGORIES.map((c) => c.name);
   const extra = [...new Set(items.map((i) => i.category))].filter((n) => !known.includes(n));
 
-  return [...CATEGORIES, ...extra.map((name) => ({ name, intro: "" }))]
+  const all: { name: string; intro: string; availableUntil?: number }[] = [
+    ...CATEGORIES,
+    ...extra.map((name) => ({ name, intro: "" })),
+  ];
+  return all
     .map((c) => ({
       id: slugify(c.name),
       name: c.name,
       intro: c.intro,
-      items: items.filter((i) => i.category === c.name),
+      items: items
+        .filter((i) => i.category === c.name)
+        // An item's own served_until wins over its category's.
+        .map((i) => (c.availableUntil && i.availableUntil === undefined ? { ...i, availableUntil: c.availableUntil } : i)),
     }))
     .filter((c) => c.items.length > 0);
 }

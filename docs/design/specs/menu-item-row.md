@@ -10,7 +10,7 @@ One entry on the menu page, set like a printed café menu: the name and price ar
 ┌──────┐  Flat white ·························· GH₵45
 │ 1:1  │  A double ristretto under a thin layer of velvety
 │photo │  microfoam. Rich, silky and not too milky.
-└──────┘  [Popular]
+└──────┘  [Popular]                            [ + Add ]
 ```
 
 | Part | Value |
@@ -21,14 +21,15 @@ One entry on the menu page, set like a printed café menu: the name and price ar
 | Price | `text-title-sm` bold, `crema-500`, `tabular-nums`, never wraps |
 | Description | `text-caption` `steam-300`, `max-w-prose` |
 | Badge | Below the description, tone from `menuBadgeTone()` |
+| Action | Optional, right-aligned on the badge line, usually `<AddToCartButton />` (see [cart.md](cart.md)) |
 
 ## Props
 
-Same as `MenuItemCard`: `name`, `description`, `price`, `currency`, `badge?`, `image`.
+Same as `MenuItemCard`: `name`, `description`, `price`, `currency`, `badge?`, `image`, `action?`. Plus `id?`, the item slug, which makes the row a search target: it gets `data-menu-item`, `scroll-mt-40` to clear the sticky header and category bar, and the `data-highlighted` outline described in [search.md](search.md).
 
 ## Layout
 
-Within a category: `grid gap-x-12 gap-y-10 lg:grid-cols-2`. Rows aren't interactive.
+Within a category: `grid gap-x-12 gap-y-10 lg:grid-cols-2`. Only the action is interactive; the row itself isn't a link.
 
 ## Accessibility
 

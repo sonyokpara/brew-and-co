@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
+import type { ReactNode } from "react";
 import { Badge } from "./Badge";
 import { formatPrice } from "./Price";
 
@@ -11,8 +12,8 @@ export function menuBadgeTone(badge: MenuItemBadge) {
 
 /**
  * MenuItemCard — a featured menu item on the homepage. See specs/menu-item-card.md
- * Display only: menu items have no detail page and can't be ordered online,
- * so the card has no link and no hover effect.
+ * Menu items have no detail page, so the card has no link and no hover
+ * effect. Pass `action` (an AddToCartButton) to make it orderable.
  */
 export function MenuItemCard({
   name,
@@ -21,6 +22,7 @@ export function MenuItemCard({
   currency,
   badge,
   image,
+  action,
 }: {
   name: string;
   description: string;
@@ -28,6 +30,8 @@ export function MenuItemCard({
   currency: string;
   badge?: MenuItemBadge;
   image: { src: string | StaticImageData; alt: string };
+  /** Usually <AddToCartButton />, at the foot of the card. */
+  action?: ReactNode;
 }) {
   return (
     <article className="flex flex-col overflow-hidden rounded-card border border-espresso-600 bg-(image:--bg-card) shadow-card">
@@ -55,6 +59,7 @@ export function MenuItemCard({
           </p>
         </div>
         <p className="line-clamp-2 text-caption text-steam-300">{description}</p>
+        {action && <div className="mt-auto flex justify-end pt-3">{action}</div>}
       </div>
     </article>
   );

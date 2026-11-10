@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import {
+  AddToCartButton,
   Container,
+  HashHighlight,
   MenuCategoryNav,
   MenuItemRow,
   PageHeader,
@@ -24,7 +26,7 @@ export default async function MenuPage() {
     <>
       <PageHeader
         title="Our menu"
-        intro="Everything here is made in-house, from the espresso to the bread. Most drinks can be made with oat milk. Prices are in Ghana cedis."
+        intro="Everything here is made in-house, from the espresso to the bread. Most drinks can be made with oat milk. Prices are in Ghana cedis. Order ahead and pick up at the counter."
       >
         <dl className="flex flex-wrap gap-x-8 gap-y-2 text-caption">
           {openingHoursDisplay.map((h) => (
@@ -36,6 +38,7 @@ export default async function MenuPage() {
         </dl>
       </PageHeader>
 
+      <HashHighlight />
       <MenuCategoryNav categories={menu.map((c) => ({ id: c.id, name: c.name }))} />
 
       <Container className="py-section-sm md:py-section">
@@ -57,12 +60,14 @@ export default async function MenuPage() {
                 {category.items.map((item) => (
                   <MenuItemRow
                     key={item.slug}
+                    id={item.slug}
                     name={item.name}
                     description={item.description}
                     price={item.price}
                     currency={site.currency}
                     badge={item.badge}
                     image={{ src: item.image, alt: item.imageAlt }}
+                    action={<AddToCartButton slug={item.slug} name={item.name} />}
                   />
                 ))}
               </ul>

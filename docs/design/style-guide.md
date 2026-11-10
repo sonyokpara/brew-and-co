@@ -188,7 +188,7 @@ Write like a good barista talks: warm, short and specific. Name the drink, the o
 
 - WCAG 2.2 AA at minimum. See the contrast table above.
 - Focus shows as a 2px `crema-400` outline with a 3px offset, set globally on `:focus-visible`. Cards also gain the `shadow-glow` halo while anything inside them has focus.
-- Primary controls are at least 44px tall (`h-11`). That includes the header's "Reserve a table" button, which uses `size="md"` rather than `sm`; it fits beside the logo and menu toggle at 360px. Icon buttons are 40px with an 8px gap between them, which exceeds the 24px minimum.
+- Primary controls are at least 44px tall (`h-11`). That includes the header's "Reserve a table" button, which uses `size="md"` rather than `sm`; from `sm` it sits in the header row, and below `sm` it moves into the menu panel so the search and cart icons fit at 320px. Icon buttons are 40px with an 8px gap between them, which exceeds the 24px minimum.
 - Each section has an `aria-labelledby` that points at its heading. Each card is an `<article>` with one stretched link, and secondary actions (the cart button) are raised above that link with `z-10`.
 - Ratings expose a single readable label ("Rated 4.5 out of 5 from 350 reviews").
 - The carousel is a scrollable, focusable list with real buttons for its dots. It never autoplays.

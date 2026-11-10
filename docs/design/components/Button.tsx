@@ -19,7 +19,8 @@ const variants: Record<Variant, string> = {
   primary:
     "rounded-full bg-crema-500 text-ink hover:bg-crema-400 active:bg-crema-600 hover:shadow-glow",
   outline:
-    "rounded-full border border-foam-50/40 text-foam-50 hover:border-crema-400 hover:text-crema-300 active:bg-foam-50/5",
+    // The crema wash fades in a little slower than the color change so the fill reads as a transition.
+    "rounded-full border border-foam-50/40 text-foam-50 duration-240 hover:border-crema-400 hover:bg-crema-500/12 hover:text-crema-300 active:bg-crema-500/20",
   link:
     "rounded-tag text-foam-50 underline-offset-4 decoration-crema-500 hover:text-crema-300 hover:underline",
 };

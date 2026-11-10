@@ -167,6 +167,13 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Tailwind v4's preflight resets buttons to the default cursor. Clickable
+     things should show the pointer, so restore it for enabled buttons. */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-crema-400);
     outline-offset: 3px;

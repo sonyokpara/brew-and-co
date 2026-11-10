@@ -23,7 +23,7 @@ Renders a Next `<Link>` when `href` is given, otherwise a `<button type="button"
 | Variant | Rest | Hover | Pressed | Use |
 |---|---|---|---|---|
 | `primary` | `crema-500` fill, `ink` text | `crema-400` + `shadow-glow` | `crema-600` | The single main action in a view ("Order now", "Get 15% off") |
-| `outline` | 1px `foam-50/40` border, foam text | border `crema-400`, text `crema-300` | `foam-50/5` wash | Secondary actions ("View all products") |
+| `outline` | 1px `foam-50/40` border, foam text | border `crema-400`, text `crema-300`, and a `crema-500/12` wash that fades in over 240ms | `crema-500/20` wash | Secondary actions ("View all products") and the header's "Reserve a table" |
 | `link` | foam text, no box | `crema-300` + crema underline | | Inline section actions ("See all") |
 
 ### Sizes
@@ -37,6 +37,7 @@ Renders a Next `<Link>` when `href` is given, otherwise a `<button type="button"
 ### States
 
 - **Focus:** global 2px `crema-400` outline with a 3px offset.
+- **Cursor:** every enabled button shows the pointer. Tailwind v4 resets buttons to the default cursor, so `tokens.css` restores it globally; don't add `cursor-pointer` per component.
 - **Disabled:** 45% opacity, no pointer events. On links, use `aria-disabled` rather than `disabled`.
 - **Pending:** change the label to the verb in progress ("Subscribing…") and set `disabled`. Don't use spinners inside buttons.
 

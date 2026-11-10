@@ -13,7 +13,10 @@ export const site = {
   timeZone: "Africa/Accra",
   address: ["14 Prempeh II Street", "Adum, Kumasi", "Ghana"],
   phone: { display: "+233 24 555 0142", href: "tel:+233245550142" },
-  mapHref: "https://www.google.com/maps/search/?api=1&query=Adum%2C+Kumasi",
+  mapHref: "https://www.google.com/maps/search/?api=1&query=Prempeh+II+Street%2C+Adum%2C+Kumasi%2C+Ghana",
+  /** Keyless Google Maps embed (no API key needed) for the About page. */
+  mapEmbedSrc:
+    "https://maps.google.com/maps?q=Prempeh+II+Street%2C+Adum%2C+Kumasi%2C+Ghana&z=16&output=embed",
   social: {
     instagram: "https://www.instagram.com/brewandco.kumasi",
     facebook: "https://www.facebook.com/brewandco.kumasi",

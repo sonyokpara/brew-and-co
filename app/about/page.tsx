@@ -10,7 +10,7 @@ import {
   Section,
   SectionHeading,
 } from "@/docs/design/components";
-import { reservationOptions, site } from "@/lib/site";
+import { openingHoursDisplay, reservationOptions, site } from "@/lib/site";
 import { reserveTable } from "../actions/reserve";
 
 export const metadata: Metadata = {
@@ -160,22 +160,59 @@ export default function AboutPage() {
       </Section>
 
       <Section aria-labelledby="visit-cta">
-        <Container>
-          <SectionHeading
-            id="visit-cta"
-            title="Come and say hello"
-            description="Ama will be on the bar and Yaw will probably have flour on his shirt."
-          />
-          <div className="flex flex-wrap justify-start gap-3">
-            <ReservationDialog
-              reserve={reserveTable}
-              options={reservationOptions}
-              timeZone={site.timeZone}
-              bookingWindowDays={site.bookingWindowDays}
+        <Container className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-16">
+          <div>
+            <SectionHeading
+              id="visit-cta"
+              title="Come and say hello"
+              description="Ama will be on the bar and Yaw will probably have flour on his shirt."
             />
-            <Button href="/menu" variant="outline">
-              See the menu
-            </Button>
+            <div className="grid gap-8 sm:grid-cols-2">
+              <div>
+                <h3 className="text-caption font-semibold text-balance text-foam-50">Find us</h3>
+                <address className="mt-2 text-body text-steam-300 not-italic">
+                  {site.address.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </address>
+              </div>
+              <div>
+                <h3 className="text-caption font-semibold text-balance text-foam-50">Opening hours</h3>
+                <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-body">
+                  {openingHoursDisplay.map((h) => (
+                    <div key={h.days} className="contents">
+                      <dt className="text-steam-300">{h.days}</dt>
+                      <dd className="text-foam-50 tabular-nums">{h.hours}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+            <div className="mt-10 flex flex-wrap justify-start gap-3">
+              <ReservationDialog
+                reserve={reserveTable}
+                options={reservationOptions}
+                timeZone={site.timeZone}
+                bookingWindowDays={site.bookingWindowDays}
+              />
+              <Button href={site.mapHref} variant="outline" target="_blank" rel="noopener noreferrer">
+                Get directions
+              </Button>
+            </div>
+          </div>
+
+          {/* Google's light map is inverted and hue-shifted so it sits in the dark page. */}
+          <div className="relative aspect-[4/3] overflow-hidden rounded-card border border-espresso-600 bg-roast-900 shadow-card lg:aspect-[5/4]">
+            <iframe
+              src={site.mapEmbedSrc}
+              title="Map showing Brew & Co. on Prempeh II Street in Adum, Kumasi"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+              className="absolute inset-0 size-full border-0 [filter:invert(0.9)_hue-rotate(180deg)_saturate(0.6)_brightness(0.95)]"
+            />
           </div>
         </Container>
       </Section>

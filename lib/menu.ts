@@ -12,7 +12,7 @@ export type MenuItem = {
   /** Price in Ghana cedis. */
   price: number;
   badge?: MenuBadge;
-  /** Public path, e.g. /images/menu/flat-white.jpg */
+  /** Public path, e.g. /images/menu/flat-white.webp */
   image: string;
   /** Describes the photo; falls back to the item name. */
   imageAlt: string;

@@ -66,7 +66,7 @@ The image uses `preload`, which replaces the `priority` prop deprecated in Next 
       <Button href="/menu" variant="outline" size="lg">See the menu</Button>
     </>
   }
-  image={{ src: "/images/menu/flat-white.jpg", alt: "A flat white with rosetta latte art, seen from above on a dark table" }}
-  accent={{ src: "/images/menu/butter-croissant.jpg", alt: "Two butter croissants catching the light" }}
+  image={{ src: "/images/menu/flat-white.webp", alt: "A flat white with rosetta latte art, seen from above on a dark table" }}
+  accent={{ src: "/images/menu/butter-croissant.webp", alt: "Two butter croissants catching the light" }}
 />
 ```

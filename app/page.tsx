@@ -45,7 +45,7 @@ export default async function Home() {
         }
         video={{
           src: "/videos/espresso-pour.mp4",
-          poster: "/videos/espresso-pour-poster.jpg",
+          poster: "/videos/espresso-pour-poster.webp",
           label: "Two streams of espresso pouring from the machine into a white cup topped with milk foam",
         }}
       />
@@ -130,7 +130,7 @@ export default async function Home() {
           </div>
           <div className="relative -mx-4 aspect-[3/2] sm:mx-0 lg:-mr-16 lg:aspect-[4/5] xl:-mr-28">
             <Image
-              src="/images/about/roasting.jpg"
+              src="/images/about/roasting.webp"
               alt="Freshly roasted coffee beans turning in a roaster's cooling tray"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
@@ -144,7 +144,7 @@ export default async function Home() {
         <Container className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16">
           <div className="relative aspect-[4/3] overflow-hidden rounded-card border border-espresso-600 shadow-card lg:aspect-[5/6]">
             <Image
-              src="/images/home/hero.jpg"
+              src="/images/home/hero.webp"
               alt="A desk lamp lighting brewing gear and a handwritten espresso menu on our bar at night"
               fill
               sizes="(min-width: 1024px) 34rem, 100vw"

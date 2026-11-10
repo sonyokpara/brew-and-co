@@ -23,14 +23,14 @@ const founders = [
   {
     name: "Ama Owusu-Ansah",
     role: "Co-founder and head barista",
-    image: "/images/about/founder-ama.jpg",
+    image: "/images/about/founder-ama.webp",
     alt: "Ama Owusu-Ansah smiling behind the counter with a cup of coffee",
     bio: "Ama grew up in Bantama and pulled her first shot at a hotel café in Accra. Six years behind espresso bars in London taught her the craft. What brought her home was missing Kumasi evenings, when nobody is in a hurry to leave.",
   },
   {
     name: "Yaw Darko",
     role: "Co-founder and head baker",
-    image: "/images/about/founder-yaw.jpg",
+    image: "/images/about/founder-yaw.webp",
     alt: "Yaw Darko in a baker's hat beside a case of fresh pastries",
     bio: "Yaw grew up near his grandmother's cocoa farm outside Konongo, then spent ten years baking bread in Kumasi hotel kitchens before dawn. He still starts every morning at 4am, laminating the croissant dough by hand.",
   },
@@ -48,7 +48,7 @@ export default function AboutPage() {
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative aspect-[3/2] overflow-hidden rounded-card border border-espresso-600 shadow-card">
             <Image
-              src="/images/about/interior.jpg"
+              src="/images/about/interior.webp"
               alt="Inside Brew & Co., with rattan lamps hanging over wooden tables and chairs"
               fill
               loading="eager"
@@ -119,7 +119,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 gap-4 lg:order-1">
             <div className="relative aspect-[4/5] overflow-hidden rounded-card border border-espresso-600 shadow-card">
               <Image
-                src="/images/about/cocoa.jpg"
+                src="/images/about/cocoa.webp"
                 alt="Freshly opened cocoa pods showing the beans inside"
                 fill
                 sizes="(min-width: 1024px) 18rem, 50vw"
@@ -128,7 +128,7 @@ export default function AboutPage() {
             </div>
             <div className="relative mt-10 aspect-[4/5] overflow-hidden rounded-card border border-espresso-600 shadow-card">
               <Image
-                src="/images/about/roasting.jpg"
+                src="/images/about/roasting.webp"
                 alt="Freshly roasted coffee beans turning in a roaster's cooling tray"
                 fill
                 sizes="(min-width: 1024px) 18rem, 50vw"

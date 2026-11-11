@@ -90,7 +90,7 @@ The scale follows Bringhurst's classical progression (12, 14, 16, 18, 21, 24, 30
 
 ## Layout
 
-- **Content column:** `max-w-site` (1200px), centered, with gutters of 16px on mobile, 24px from `sm` and 32px from `lg` (`<Container>`).
+- **Content column:** `max-w-site` (1200px), centered, with gutters of 20px on mobile, 32px from `sm` and 48px from `lg` (`<Container>`).
 - **Vertical rhythm:** `py-section-sm` (64px) below `md` and `py-section` (96px) above it, set by `<Section>`.
 - **Grid:** 12 columns are implied but not enforced. Product cards run 1 → 2 → 3 columns, merch tiles 2 → 4, features 1 → 2 → 4.
 - **Alignment:** left-aligned by default. Center only when a section is a single statement: the stats band, the "Crafted with care" value props, testimonials and the newsletter panel. Closing call-to-action sections on inner pages (a heading, one line and the buttons, like About's "Come and say hello") stay left-aligned.

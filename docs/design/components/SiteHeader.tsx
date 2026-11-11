@@ -32,7 +32,7 @@ export function SiteHeader({
 
   return (
     <header className="sticky top-0 z-40 border-b border-roast-700/60 bg-roast-950/85 backdrop-blur-md">
-      <div className="mx-auto flex h-18 w-full max-w-site items-center gap-6 px-gutter sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-18 w-full max-w-site items-center gap-6 px-gutter sm:px-8 lg:px-12">
         <Logo />
 
         <nav aria-label="Main" className="mx-auto hidden md:block">
@@ -70,7 +70,7 @@ export function SiteHeader({
 
       <div id="mobile-nav" hidden={!open} className="border-t border-roast-700/60 md:hidden">
         <nav aria-label="Main">
-          <ul className="flex flex-col px-gutter py-2 sm:px-6">
+          <ul className="flex flex-col px-gutter py-2 sm:px-8">
             {items.map((item) => (
               <li key={item.href}>
                 <Link

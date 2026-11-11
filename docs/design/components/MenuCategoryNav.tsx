@@ -48,7 +48,7 @@ export function MenuCategoryNav({ categories }: { categories: { id: string; name
     >
       <ul
         ref={listRef}
-        className="mx-auto flex w-full max-w-site gap-2 overflow-x-auto px-gutter py-3 [scrollbar-width:none] sm:px-6 lg:px-8"
+        className="mx-auto flex w-full max-w-site gap-2 overflow-x-auto px-gutter py-3 [scrollbar-width:none] sm:px-8 lg:px-12"
       >
         {categories.map((c) => (
           <li key={c.id} className="shrink-0">

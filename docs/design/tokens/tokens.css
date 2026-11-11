@@ -98,7 +98,7 @@
   /* ---------- Layout ---------- */
   --container-site: 75rem; /* 1200px content column */
   --container-prose: 36rem; /* ~65ch for body copy */
-  --spacing-gutter: 1rem; /* mobile side gutter */
+  --spacing-gutter: 1.25rem; /* mobile side gutter */
   --spacing-section: 6rem; /* vertical rhythm between sections */
   --spacing-section-sm: 4rem; /* same, below md */
 

@@ -4,7 +4,7 @@
 
 ## Container
 
-The 1200px column (`max-w-site`) with side gutters of 16, 24 and 32px at `base`, `sm` and `lg`. `as` changes the element it renders. Every section's content goes inside one, except full-bleed bands (`StatBand`, `PulseDivider`).
+The 1200px column (`max-w-site`) with side gutters of 20, 32 and 48px at `base`, `sm` and `lg`. `as` changes the element it renders. Every section's content goes inside one, except full-bleed bands (`StatBand`, `PulseDivider`).
 
 ## Section
 

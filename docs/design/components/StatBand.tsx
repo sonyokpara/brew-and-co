@@ -11,7 +11,7 @@ export function StatBand({
 }) {
   return (
     <section aria-label={label} className="border-y border-roast-600 bg-(image:--bg-stats)">
-      <dl className="mx-auto grid w-full max-w-site grid-cols-2 gap-y-10 px-gutter py-14 sm:px-6 md:grid-cols-4 lg:px-8">
+      <dl className="mx-auto grid w-full max-w-site grid-cols-2 gap-y-10 px-gutter py-14 sm:px-8 md:grid-cols-4 lg:px-12">
         {stats.map((s) => (
           <div key={s.label} className="flex flex-col-reverse items-center gap-1 text-center">
             <dt className="text-caption text-steam-300">{s.label}</dt>

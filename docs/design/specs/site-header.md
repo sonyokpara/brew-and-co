@@ -34,7 +34,7 @@
 ### Responsive
 
 - Below `md`, the inline nav is hidden and a menu toggle appears (`aria-expanded`, `aria-controls="mobile-nav"`). The panel lists links at 48px row height in `text-lead`, and choosing one closes it.
-- The logo, utilities and toggle are always visible. Below `sm` there isn't room for the `cta` as well (the logo, three 40px icons and the 44px button need about 360px, and a 320px screen leaves 288px), so it moves into the menu panel under the links.
+- The logo, utilities and toggle are always visible. Below `sm` there isn't room for the `cta` as well (the logo, three 40px icons and the 44px button need about 360px, and a 320px screen leaves 280px inside its gutters), so it moves into the menu panel under the links.
 
 ### Accessibility
 

@@ -9,7 +9,7 @@ export function Container({
 }: ComponentProps<"div"> & { as?: ElementType }) {
   return (
     <Tag
-      className={cn("mx-auto w-full max-w-site px-gutter sm:px-6 lg:px-8", className)}
+      className={cn("mx-auto w-full max-w-site px-gutter sm:px-8 lg:px-12", className)}
       {...rest}
     />
   );

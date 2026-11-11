@@ -30,7 +30,7 @@ export function SiteFooter({
 }) {
   return (
     <footer className="border-t border-roast-700 bg-roast-950">
-      <div className="mx-auto grid w-full max-w-site gap-12 px-gutter py-16 sm:grid-cols-2 sm:px-6 lg:grid-flow-col lg:grid-cols-[1.4fr] lg:auto-cols-fr lg:px-8">
+      <div className="mx-auto grid w-full max-w-site gap-12 px-gutter py-16 sm:grid-cols-2 sm:px-8 lg:grid-flow-col lg:grid-cols-[1.4fr] lg:auto-cols-fr lg:px-12">
         <div>
           <Logo size="lg" />
           <p className="mt-4 max-w-[14rem] text-caption text-steam-300">{tagline}</p>
@@ -102,7 +102,7 @@ export function SiteFooter({
         </div>
       </div>
       <div className="border-t border-roast-700">
-        <p className="mx-auto max-w-site px-gutter py-6 text-micro text-steam-500 sm:px-6 lg:px-8">
+        <p className="mx-auto max-w-site px-gutter py-6 text-micro text-steam-500 sm:px-8 lg:px-12">
           {copyright}
         </p>
       </div>
